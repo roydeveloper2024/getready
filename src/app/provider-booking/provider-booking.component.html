@@ -1,0 +1,171 @@
+<full-calendar #calendar [options]="calendarOptions"></full-calendar>
+
+<p-dialog  
+		   appendTo="body"
+		   [(visible)]="displayAddSched" 
+		   styleClass="col-11 col-md-10 p-0 ez-p-dialog" 
+		   [showWeek]="false"
+		   [modal]="true" [baseZIndex]="99999" [closable]="true" [showHeader]="false">
+	
+	<div class="container-fluid p-3">
+		<div class="row">
+			<div class="col-md-auto text-center">
+				<h4>DATE</h4>
+				
+				<p-calendar [(ngModel)]="selectedDates" 
+							[minDate]="minDate" 
+							[readonlyInput]="true" 
+							[inline]="true" 
+							appendTo="body"
+							[showWeek]="false"
+							selectionMode="multiple">				
+				</p-calendar>
+
+			</div>
+
+			<div class="col">
+				<div class="row">
+					<div class="col-md-12">
+						<h4>TIME</h4>
+					</div>
+					<div class="col-md-12">
+
+						<form class="form-group" [formGroup]="timeListForm">
+							<div formArrayName="items" >
+
+								<table class="table table-bordered table-sm">
+									<tr>
+										<th>From</th>
+										<th>To</th>
+										<th>Slot</th>
+										<th>
+											<button class="btn btn-sm bg-ez-primary ml-1"  (click)="add()">+</button>
+
+										</th>
+									</tr>
+
+									<tr *ngFor="let x of timeListForm.get('items')?.controls; let i=index; trackBy:track" [formGroupName]="i">
+										<td>
+											<p-dropdown [options]="timeOpt" formControlName="from" [style]="{'width':'100%'}"></p-dropdown>
+
+											<small class="text-danger" *ngIf="itemC?.controls[i]?.get('from').errors?.required">
+												From is required
+											</small>
+
+										</td>
+										
+										<td>
+											<p-dropdown [options]="timeOpt" formControlName="to" [style]="{'width':'100%'}"></p-dropdown>
+
+											<small class="text-danger" *ngIf="itemC?.controls[i]?.get('to').errors?.required">
+												To is required
+											</small>
+
+											<small class="text-danger" *ngIf="itemC?.controls[i]?.get('to').errors?.gtToFrom">
+												Invalid time range
+											</small>
+
+
+											
+										</td>
+
+										<td>
+											<input class="form-control"  style="width: 100px;" formControlName="slot" type="number" placeholder="Item name">
+
+											<small class="text-danger" 
+													*ngIf="itemC.controls[i].get('slot').errors?.required || itemC.controls[i].get('slot').errors?.min">
+												Slot is required
+											</small>
+
+											<small class="text-danger" 
+													*ngIf="itemC.controls[i].get('slot').errors?.testError">
+												Test Error
+											</small>
+
+
+					
+
+										</td>
+
+										<td>
+											<button class="btn btn-sm btn-secondary"  (click)="deleteItem(i)">X</button>
+
+											
+										</td>
+									</tr>
+								</table>
+
+							</div>
+
+
+							<small class="text-danger" *ngIf="tlf?.items?.errors?.required">
+								Please set you time schedule <br/>
+							</small>
+
+
+							
+
+							<button class="btn btn-primary btn-sm m-1" (click)="clearData()">Refresh</button>
+							<button class="btn btn-primary btn-sm m-1" (click)="submit()" [disabled]="timeListForm.invalid">Submit</button>
+						</form>
+
+
+
+					<!-- 	<form [formGroup]="timeForm" >
+							<div class="container-fluid">
+								<div formArrayName="data" 
+
+							      *ngFor="let arrayItem of arrayItems; let i=index">
+							         
+							      <input  type="text" [formControl]="data[i]">
+
+							     
+							   
+							   </div>
+
+
+								<div class="row">
+									<div class="col-md-3 p-1">
+										<div class="form-group">
+											<label for="minmax">From</label>
+											<p-dropdown [options]="timeOpt" [style]="{'width':'100%'}"></p-dropdown>
+										</div>
+									</div>
+
+									<div class="col-md-3 p-1">
+										<div class="form-group">
+											<label for="minmax">To</label>
+											<p-dropdown [options]="timeOpt" [style]="{'width':'100%'}"></p-dropdown>
+										</div>
+
+									</div>
+
+									<div class="col-md-3 p-1">
+										<div class="form-group">
+											<label for="minmax">Slot</label>
+								        	<input type="number" name="" min="1" class="form-control">
+										</div>
+										
+									</div>
+
+									<div class="col-md-3">
+										<button class="btn btn-sm bg-ez-outline-primary" (click)="addTimeSlot()">+</button>
+									</div>
+								</div>
+							</div>
+					
+						</form> -->
+
+
+        				
+					</div>
+			
+				</div>
+				
+			</div>
+		</div>	  
+	</div>
+
+	
+</p-dialog>
+

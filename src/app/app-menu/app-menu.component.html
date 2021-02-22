@@ -1,0 +1,77 @@
+<div class="main-wrapper">
+
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-ez-grad">
+		<div class="container-fluid p-3">
+			<a class="navbar-brand text-white" href="#">Easy Service</a>
+		  	<!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
+		  	<button class="navbar-toggler text-white" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+		    	&#9776;
+		  	</button>
+		  	<!-- Step 2: Add the ngbCollapse directive to the element below. -->
+		  	<div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+		    	<ul class="navbar-nav mr-auto">
+		      		<li class="nav-item active">
+		        		<!-- Step 4: Close the menu when a link is clicked. -->
+		        		<a class="nav-link text-white" [routerLink]="'.'" (click)="isMenuCollapsed = true">Sign In</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link text-white" [routerLink]="'.'" (click)="isMenuCollapsed = true">Sign Up</a>
+		      		</li>
+		    	</ul>
+		  	</div>
+		</div>
+	</nav>
+
+
+
+<!-- 	<nav class="navbar navbar-light bg-ez-grad">
+	  	<div class="container-fluid p-3">
+	  		<a class="navbar-brand text-white" href="#">Easy Service</a>
+
+		 	<ul class="navbar-nav mr-auto">
+		      	<li class="nav-item active">
+		        
+				  	<button class="navbar-toggler text-white" type="button" (click)="snav.toggle()">
+			      		<span class="navbar-toggler-icon"></span>
+			    	</button>
+		      	</li>
+		    </ul>
+
+		    <h3 class="text-white">Auto Shop</h3>
+	  	</div>
+	</nav>
+ -->
+	<mat-sidenav-container class="sidenav-container">
+	  	<!-- <mat-sidenav 
+	  		#snav 
+	  		[attr.role]="isHandset ? 'dialog' : 'navigation'"
+	  		[mode]="(isHandset | async)!.matches ? 'over' : 'side'"
+	  		[opened]="!(isHandset | async)!.matches"
+	  		class="sidenav shadow-sm z-1"
+	  		fixedInViewport="false" >
+
+	    	<app-side-nav></app-side-nav>
+	  	</mat-sidenav> -->
+
+	  	<mat-sidenav 
+	  		#snav 
+	  		[attr.role]="isHandset ? 'dialog' : 'navigation'"
+	  		[mode]="(isHandset | async)!.matches ? 'over' : 'side'"
+	  		[opened]="true"
+	  		class="sidenav shadow-sm z-1 bg-dark"
+	  		fixedInViewport="false" >
+
+	    	<app-side-nav></app-side-nav>
+	  	</mat-sidenav>
+
+
+	  	<mat-sidenav-content>
+	    	<router-outlet></router-outlet>
+	    	<footer>
+				<!-- <h1>Footer Here</h1> -->
+			</footer>
+	  	</mat-sidenav-content>
+	</mat-sidenav-container>
+
+</div>

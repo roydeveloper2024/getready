@@ -1,0 +1,82 @@
+<div class="container mt-3 mb-5">
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<div class="row mt-5">
+				<div class="col-md-12">
+					<div class="text-center">
+						<img src="assets/img/bffformlogo.jpg" class="img-fluid" alt="Responsive image">
+					</div>
+
+				</div>
+
+				<!-- <div class="col-12 text-center">
+					<h6>
+						<small>
+							BF FEDERATION OF HOMEOWNER ASSOCIATIONS, INC. (BFFHAI) <br/>
+							BFFHAI Clubhouse. No.37 Pilar Banzon St, BF Homes, Parañaque City <br/>
+							Tel. Nos. 807.5084; 807-5170. Fax No. 4034586 <br/>
+							Village Administrator # 8403-4570 <br/>
+							Security Office # 8807-3115 ; BF Ambulance # 8809-8670 <br/>
+							Email: contactus.bffhaionline@gmail.com
+						</small>
+					</h6>
+
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark mb-3">
+	<div class="container p-3">
+		<!-- <a class="navbar-brand text-white" href="#">BFFHAI</a> -->
+	  	<!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
+	  	<button class="navbar-toggler text-white" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+	    	&#9776;
+	  	</button>
+	  	<!-- Step 2: Add the ngbCollapse directive to the element below. -->
+	  	<div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+	    	<ul class="navbar-nav m-auto">
+	      		<li class="nav-item">
+	        		<!-- Step 4: Close the menu when a link is clicked. -->
+	        		<!-- Step 4: Close the menu when a link is clicked. -->
+	        		<a class="nav-link font-weight-bold text-white" routerLink="/" (click)="isMenuCollapsed = true">HOME</a>
+	      		</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link font-weight-bold text-white" routerLink="/news" (click)="isMenuCollapsed = true">VILLAGE NEWS & UPDATES</a>
+	      		</li>
+
+	      		<li class="nav-item">
+	        		<a class="nav-link font-weight-bold text-white" routerLink="/stickers" (click)="isMenuCollapsed = true">STICKER APPLICATION</a>
+	      		</li>
+
+	      		<li class="nav-item">
+	        		<a class="nav-link font-weight-bold text-white" routerLink="/forms" (click)="isMenuCollapsed = true">PRINTABLE FORMS</a>
+	      		</li>
+	    	</ul>
+	  	</div>
+	</div>
+</nav>
+
+<router-outlet></router-outlet>
+
+
+
+<div class="container-fluid mt-5">
+	<footer class="row">
+		<div class="col text-center">
+			<h6>
+				<small>
+					BF FEDERATION OF HOMEOWNER ASSOCIATIONS, INC. (BFFHAI) <br/>
+					BFFHAI Clubhouse. No.37 Pilar Banzon St, BF Homes, Parañaque City <br/>
+					Tel. Nos. 807.5084; 807-5170. Fax No. 4034586 <br/>
+					Village Administrator # 8403-4570 <br/>
+					Security Office # 8807-3115 ; BF Ambulance # 8809-8670 <br/>
+					Email: contactus.bffhaionline@gmail.com
+				</small>
+			</h6>
+		</div>
+	</footer>
+</div>

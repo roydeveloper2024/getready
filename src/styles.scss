@@ -1,1 +1,129 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
+.bg-ez-grad{
+  background:-webkit-linear-gradient(90deg, rgb(4, 165, 215) 22%, rgb(39, 200, 219) 75%, rgb(23, 184, 217) 91%);
+  background:-o-linear-gradient(90deg, rgb(4, 165, 215) 22%, rgb(39, 200, 219) 75%, rgb(23, 184, 217) 91%);
+  background:-moz-linear-gradient(90deg, rgb(4, 165, 215) 22%, rgb(39, 200, 219) 75%, rgb(23, 184, 217) 91%);
+  background:linear-gradient(90deg, rgb(4, 165, 215) 22%, rgb(39, 200, 219) 75%, rgb(23, 184, 217) 91%);
+}
+
+.bg-ez-primary{
+  background-color: #22C3DB;
+  color: #ffffff;
+}
+
+.bg-ez-outline-primary{
+  border: 1px solid #22c3db;
+  color: #22c3db;
+}
+
+.bg-ez-outline-primary:hover{
+  background-color: #22C3DB;
+  color: #ffffff;
+}
+
+.bg-ez-badge-primary{
+  background-color: #E6F5FA;
+  color: #00A1D6;
+}
+
+
+
+.bg-ez{
+  background-color: #00A1D6;
+}
+
+.bg-ez-gray{
+  background-color: #F1F1F1;
+}
+
+
+.ez-p-autocomplete.p-autocomplete {
+    width: 100%;
+
+    .p-inputtext{
+        width: 100%;
+        padding: 10px;
+        border-radius: 30px;
+    }
+}
+
+.ez-p-dialog.p-dialog{
+    border-radius: 20px;
+    .p-dialog-content{
+        border-radius: 20px;
+    }
+}
+
+.ez-p-calendar.p-calendar{
+  width: 100% !important;
+
+  .p-datepicker{
+    width: 100% !important;
+  }
+  .p-datepicker-calendar{
+    width: 100% !important;
+  }
+
+  .p-inputtext{
+    width: 100% !important;
+  }
+}
+
+.custom-slider {
+    height: 20px;
+}
+.custom-slider .ngx-slider .ngx-slider-bar {
+    position: absolute;
+    top: -15px;
+    background: #ffe4d1;
+    height: 2px;
+}
+.custom-slider .ngx-slider .ngx-slider-selection {
+    background: #22C3DB;
+}
+
+.custom-slider .ngx-slider .ngx-slider-pointer {
+    width: 8px;
+    height: 10px;
+    top: auto; /* to remove the default positioning */
+    bottom: 0;
+    background-color: #333;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    position: absolute;
+    top: -33px;
+}
+
+.custom-slider .ngx-slider .ngx-slider-pointer:after {
+    display: none;
+}
+
+.custom-slider .ngx-slider .ngx-slider-bubble {
+    bottom: 10px;
+}
+
+.custom-slider .ngx-slider .ngx-slider-limit {
+    font-weight: bold;
+    color: orange;
+}
+
+.custom-slider .ngx-slider .ngx-slider-tick {
+    width: 1px;
+    height: 10px;
+    margin-left: 4px;
+    border-radius: 0;
+    background: #ffe4d1;
+    top: -1px;
+}
+
+.custom-slider .ngx-slider .ngx-slider-tick.ngx-slider-selected {
+    background: #22C3DB;
+} 

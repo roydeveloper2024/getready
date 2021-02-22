@@ -1,0 +1,37 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col p-3">
+			<ul class="nav nav-tabs">
+			  	<li class="nav-item">
+			    	<a class="nav-link active" routerLink="/dashboard">Wall</a>
+			  	</li>
+
+
+			  	<li class="nav-item">
+			    	<a class="nav-link" href="javascript:void(0)" routerLink="/dashboard/booking">Bookings</a>
+			  	</li>
+
+			  	<li class="nav-item">
+			    	<a class="nav-link" href="javascript:void(0)" routerLink="/dashboard/calendar">Calendar</a>
+			  	</li>
+
+
+			  	<li class="nav-item">
+			    	<a class="nav-link" href="javascript:void(0)" routerLink="/dashboard/service">Services</a>
+			  	</li>
+
+			  	<li class="nav-item">
+			    	<a class="nav-link" href="javascript:void(0)" routerLink="/dashboard/review">Reviews</a>
+			  	</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<router-outlet></router-outlet>			
+		</div>
+	</div>
+</div>
+
