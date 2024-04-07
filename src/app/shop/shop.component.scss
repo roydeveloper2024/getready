@@ -1,0 +1,97 @@
+.card-wrapper {
+    position: relative;
+}
+
+.card-wrapper:hover {
+    position: relative;
+    background: rgba(230, 230, 230, 0.1);
+
+    .card-hover {
+        visibility: visible;
+        z-index: 9999;
+        background: rgba(230, 230, 230, 0.1);
+        // background-color:gray;
+        // opacity: .1;
+    }
+}
+
+.btn-circle {
+    background-color: #d9d9d9;
+}
+
+.btn-circle:hover {
+    background-color: #ff5c33;
+}
+
+.card-hover {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+}
+
+.text-grph-red {
+    color: #ed6272;
+}
+
+.sub-header {
+    font-size: 60px;
+}
+
+.bg-orange {
+    background-color: #ff5722;
+}
+
+.round-div-btn {
+    background-color: #c6c6c6;
+    padding: 15px;
+    border-radius: 5px 30px 30px 5px;
+}
+
+.round-div-btn:hover {
+    background-color: #a30d26;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.hover-type:hover {
+    color: brown;
+}
+
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+.text2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: contain;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+    .card-img-top {
+
+        height: 250px;
+
+    }
+}
+
+@media (min-width: 768px) {
+
+}

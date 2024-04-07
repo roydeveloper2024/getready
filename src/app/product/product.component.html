@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="row mt-2">
+        <div class="col-md-6">
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+        </div>
+
+        <div class="col-md-6 mb-2">
+            <h4><strong class="text-capitalize">{{ prod_info?.prod_title}}</strong></h4>
+            <h5>{{ prod_info?.first_variant?.prod_var_price | currency:"PHP":"symbol" }} </h5>
+            <h6><small class="text-muted">Description -</small></h6>
+
+            <p class="text-justify">
+                {{ prod_info?.prod_desc }}
+            </p>
+
+            <div class="clearfix">
+
+            </div>
+
+            <p style='white-space: pre-wrap;' class="text-justify">{{ prod_info?.prod_details }}</p>
+
+<!--
+            <pre><h6>{{ prod_info?.prod_details }}</h6></pre> -->
+
+            <dl class="row">
+                <dt class="col-sm-3"><small>SKU:</small></dt>
+                <dd class="col-sm-9"><small>{{ prod_info?.first_variant?.prod_var_sku }}</small></dd>
+
+                <dt class="col-sm-3"><small>Color:</small></dt>
+                <dd class="col-sm-9">
+                    <small class="badge" [ngClass]="prod_info?.first_variant?.prod_var_weight_color ? 'badge-success' : 'badge-danger'">
+                    {{ prod_info?.first_variant?.prod_var_weight_color ? prod_info?.first_variant?.prod_var_weight_color : 'No color available' }}</small>
+                </dd>
+
+                <dt class="col-sm-3"><small>Size:</small></dt>
+                <dd class="col-sm-9">
+                    <small class="badge" [ngClass]="prod_info?.first_variant?.prod_var_weight_size ? 'badge-success' : 'badge-danger'">
+                    {{ prod_info?.first_variant?.prod_var_weight_size ? prod_info?.first_variant?.prod_var_weight_size : 'No size available' }}</small>
+                </dd>
+
+                <dt class="col-sm-3"><small>Weight:</small></dt>
+                <dd class="col-sm-9">
+                    <small class="badge" [ngClass]="prod_info?.first_variant?.prod_var_weight ? 'badge-success' : 'badge-danger'">
+                    {{ prod_info?.first_variant?.prod_var_weight ? prod_info?.first_variant?.prod_var_weight : 'No size available' }}</small>
+                </dd>
+
+                <dt class="col-sm-3"><small>Unit:</small></dt>
+
+                <dd class="col-sm-9">
+                    <small class="badge" [ngClass]="prod_info?.first_variant?.prod_var_weight_unit ? 'badge-success' : 'badge-danger'">
+                    {{ prod_info?.first_variant?.prod_var_weight_unit ? prod_info?.first_variant?.prod_var_weight_unit : 'No unit available' }}</small>
+                </dd>
+
+
+                <dt class="col-sm-3"><small>Dimensions:</small></dt>
+                <dd class="col-sm-9">
+                    <small class="badge" [ngClass]="prod_info?.first_variant?.prod_var_weight_dimension ? 'badge-success' : 'badge-danger'">
+                    {{ prod_info?.first_variant?.prod_var_weight_dimension ? prod_info?.first_variant?.prod_var_weight_dimension : 'No dimension available' }}</small>
+                </dd>
+
+
+
+
+                <dt class="col-sm-3"><small>Stocks:</small></dt>
+                <dd class="col-sm-9">
+                    <!-- <p-inputNumber styleClass="gprh-p-inputnumber"
+                        [(ngModel)]="order_qty" [showButtons]="true"
+                        buttonLayout="horizontal" inputId="horizontal"
+                        spinnerMode="horizontal" [step]="1"
+                        decrementButtonClass="p-button-danger"
+                        incrementButtonClass="p-button-success"
+                        incrementButtonIcon="pi pi-plus"
+                        decrementButtonIcon="pi pi-minus" [min]="1"
+                        [max]="prod_info?.first_variant?.prod_var_stock">
+                    </p-inputNumber> -->
+
+                    <h6><small class="text-muted">*{{ prod_info?.first_variant?.prod_var_stock }} stocks available</small></h6>
+                </dd>
+
+            </dl>
+
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <button class="btn btn-light btn-block rounded-0 grph-border" (click)="addToCart()">Add to cart</button>
+                </div>
+
+                <div class="col-md-6">
+                    <button class="btn grph-btn btn-block rounded-0" routerLink="/checkout">Buy now</button>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="p-5">
+
+        </p>
+    </div>
+
+</div>
+
+
+<p-toast [style]="{marginTop: '80px'}"></p-toast>

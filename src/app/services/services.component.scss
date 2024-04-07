@@ -1,0 +1,26 @@
+.hero-cover{
+    /* The image used */
+     // background-image: url("");
+
+     // /* Full height */
+     // height: 100%;
+
+     // /* Center and scale the image nicely */
+     // background-position: center;
+     // background-repeat: no-repeat;
+     // background-size: cover;
+
+   background: url(../../assets/img/form-background.jpg) no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+
+   position: relative;
+
+   height: 100vh;
+}
+
+// *{
+//     color: #112D32 !important;
+// }

@@ -2,17 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-
 
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
-
+import { TokenInterceptorService } from './services/tokeninterceptor/tokeninterceptor.service';
 //Ngx module
 import { FacebookModule } from 'ngx-facebook-fb';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +19,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { BadgeModule } from 'primeng/badge';
 
-
+import { ConfirmationService } from 'primeng/api';
 //Ng material
 import { MatSidenavModule } from '@angular/material/sidenav';
 //End of material
@@ -50,7 +49,7 @@ import { ProgressBarModule }      from 'primeng/progressbar';
 // import { KeyFilterModule }        from 'primeng/keyfilter';
 import { TabViewModule }          from 'primeng/tabview';
 import { TabMenuModule }          from 'primeng/tabmenu';
-
+import { CheckboxModule }         from 'primeng/checkbox';
 
 
 
@@ -63,25 +62,53 @@ import { ErrorComponent } from './error/error.component';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { AccountSettingComponent } from './account-setting/account-setting.component';
 import { HomeComponent } from './home/home.component';
+import { MessageService } from 'primeng/api';
 
-import { ProviderBookingComponent } from './provider-booking/provider-booking.component';
-import { ProviderCalendarComponent } from './provider-calendar/provider-calendar.component';
-import { ProviderOffersComponent } from './provider-offers/provider-offers.component';
-import { ProviderProductComponent } from './provider-product/provider-product.component';
-import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
-import { ProviderReviewComponent } from './provider-review/provider-review.component';
 
- 
 import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { NewsComponent } from './news/news.component';
 import { StickerComponent } from './sticker/sticker.component';
-import { FormComponent } from './form/form.component'; // a plugin
+import { FormComponent } from './form/form.component';
+import { ServicesComponent } from './services/services.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { CovidResponseComponent } from './covid-response/covid-response.component';
+import { CareersComponent } from './careers/careers.component';
+import { AboutComponent } from './about/about.component';
+import { FaqsComponent } from './faqs/faqs.component';
+import { HotToBuyComponent } from './hot-to-buy/hot-to-buy.component';
+import { TrainingComponent } from './training/training.component';
+import { EmergencyGuideComponent } from './emergency-guide/emergency-guide.component'; // a plugin
+import { StepsModule } from 'primeng/steps';
+import { SidebarModule } from 'primeng/sidebar';
+import { SidecartComponent } from './sidecart/sidecart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ShopComponent } from './shop/shop.component';
+import { SearchFilterPipe } from './pipe/search-filter.pipe';
+import 'hammerjs';
+import { NgxGalleryModule } from 'ngx-gallery-9';
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ProductComponent } from './product/product.component';
+import { TrainingFormComponent } from './training-form/training-form.component';
+import { LoginComponent } from './login/login.component';
+import { SigninComponent } from './signin/signin.component';
+import { WhatToDoInAnEmergercyComponent } from './what-to-do-in-an-emergercy/what-to-do-in-an-emergercy.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { DonationProgramComponent } from './donation-program/donation-program.component';
+import { BeneficiariesComponent } from './beneficiaries/beneficiaries.component';
+import { VideosComponent } from './videos/videos.component';
+import { NgImageSliderModule } from 'ng-image-video-gallery';
+import { ProfileComponent } from './profile/profile.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 
-FullCalendarModule.registerPlugins([ 
+FullCalendarModule.registerPlugins([
   dayGridPlugin,
   interactionPlugin,
   timeGridPlugin
@@ -98,16 +125,37 @@ FullCalendarModule.registerPlugins([
     ErrorComponent,
     AccessDeniedComponent,
     AccountSettingComponent,
-    ProviderBookingComponent,
-    ProviderCalendarComponent,
-    ProviderOffersComponent,
-    ProviderProductComponent,
-    ProviderProfileComponent,
-    ProviderReviewComponent,
+
     HomeComponent,
     NewsComponent,
     StickerComponent,
-    FormComponent
+    FormComponent,
+    ServicesComponent,
+    ContactComponent,
+    AboutUsComponent,
+    CovidResponseComponent,
+    CareersComponent,
+    AboutComponent,
+    FaqsComponent,
+    HotToBuyComponent,
+    TrainingComponent,
+    EmergencyGuideComponent,
+    SidecartComponent,
+    CheckoutComponent,
+    ShopComponent,
+    SearchFilterPipe,
+    ProductComponent,
+    TrainingFormComponent,
+    LoginComponent,
+    SigninComponent,
+    WhatToDoInAnEmergercyComponent,
+    WelcomePageComponent,
+    DonationProgramComponent,
+    BeneficiariesComponent,
+    VideosComponent,
+    ProfileComponent,
+    ResetPasswordComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -124,7 +172,8 @@ FullCalendarModule.registerPlugins([
 
     //Ngx module
     FacebookModule.forRoot(),
-    
+
+
     //Ng material
     MatSidenavModule,
 
@@ -145,11 +194,26 @@ FullCalendarModule.registerPlugins([
     InputTextModule,
     FullCalendarModule,
     InputNumberModule,
-    
+    CheckboxModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StepsModule,
+    HttpClientModule,
+    SidebarModule,
+
+    Ng2SearchPipeModule,
+    NgxGalleryModule,
+
+    NgImageSliderModule
+
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  },
+    MessageService,
+    ConfirmationService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

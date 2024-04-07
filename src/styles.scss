@@ -1,129 +1,103 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  // height: 100%;
+  // background: url(assets/img/form-background.jpg) no-repeat center center fixed;
+  //  -webkit-background-size: cover;
+  //  -moz-background-size: cover;
+  //  -o-background-size: cover;
+  //  background-size: cover;
 
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
-
-
-.bg-ez-grad{
-  background:-webkit-linear-gradient(90deg, rgb(4, 165, 215) 22%, rgb(39, 200, 219) 75%, rgb(23, 184, 217) 91%);
-  background:-o-linear-gradient(90deg, rgb(4, 165, 215) 22%, rgb(39, 200, 219) 75%, rgb(23, 184, 217) 91%);
-  background:-moz-linear-gradient(90deg, rgb(4, 165, 215) 22%, rgb(39, 200, 219) 75%, rgb(23, 184, 217) 91%);
-  background:linear-gradient(90deg, rgb(4, 165, 215) 22%, rgb(39, 200, 219) 75%, rgb(23, 184, 217) 91%);
+  //  position: relative;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.bg-ez-primary{
-  background-color: #22C3DB;
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+
+
+.bg-ez-grad {
+  background: -webkit-linear-gradient(90deg, rgb(4, 165, 215) 22%, rgb(39, 200, 219) 75%, rgb(23, 184, 217) 91%);
+  background: -o-linear-gradient(90deg, rgb(4, 165, 215) 22%, rgb(39, 200, 219) 75%, rgb(23, 184, 217) 91%);
+  background: -moz-linear-gradient(90deg, rgb(4, 165, 215) 22%, rgb(39, 200, 219) 75%, rgb(23, 184, 217) 91%);
+  background: linear-gradient(90deg, rgb(4, 165, 215) 22%, rgb(39, 200, 219) 75%, rgb(23, 184, 217) 91%);
+}
+
+.bg-ez-primary {
+  background-color: #22c3db;
   color: #ffffff;
 }
 
-.bg-ez-outline-primary{
+.bg-ez-outline-primary {
   border: 1px solid #22c3db;
   color: #22c3db;
 }
 
-.bg-ez-outline-primary:hover{
-  background-color: #22C3DB;
+.bg-ez-outline-primary:hover {
+  background-color: #22c3db;
   color: #ffffff;
 }
 
-.bg-ez-badge-primary{
-  background-color: #E6F5FA;
-  color: #00A1D6;
+.bg-ez-badge-primary {
+  background-color: #e6f5fa;
+  color: #00a1d6;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+.bg-ez {
+  background-color: #00a1d6;
+}
+
+.bg-ez-gray {
+  background-color: #f1f1f1;
 }
 
 
 
-.bg-ez{
-  background-color: #00A1D6;
+.hero-cover {
+  /* The image used */
+  // background-image: url("");
+
+  // /* Full height */
+  // height: 100%;
+
+  // /* Center and scale the image nicely */
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+
+  background: url(assets/img/bbi-wallpaper.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  position: relative;
+
+  height: 100vh;
 }
 
-.bg-ez-gray{
-  background-color: #F1F1F1;
+.pointer {
+  cursor: pointer;
 }
 
+.gprh-p-inputnumber.p-inputnumber {
+  .p-inputnumber-button {
+    background-color:#6C757D !important;
+    border: none;
 
-.ez-p-autocomplete.p-autocomplete {
-    width: 100%;
-
-    .p-inputtext{
-        width: 100%;
-        padding: 10px;
-        border-radius: 30px;
-    }
-}
-
-.ez-p-dialog.p-dialog{
-    border-radius: 20px;
-    .p-dialog-content{
-        border-radius: 20px;
-    }
-}
-
-.ez-p-calendar.p-calendar{
-  width: 100% !important;
-
-  .p-datepicker{
-    width: 100% !important;
   }
-  .p-datepicker-calendar{
-    width: 100% !important;
-  }
 
-  .p-inputtext{
-    width: 100% !important;
+
+  .p-inputnumber-input {
+    width: 30px;
   }
 }
-
-.custom-slider {
-    height: 20px;
-}
-.custom-slider .ngx-slider .ngx-slider-bar {
-    position: absolute;
-    top: -15px;
-    background: #ffe4d1;
-    height: 2px;
-}
-.custom-slider .ngx-slider .ngx-slider-selection {
-    background: #22C3DB;
-}
-
-.custom-slider .ngx-slider .ngx-slider-pointer {
-    width: 8px;
-    height: 10px;
-    top: auto; /* to remove the default positioning */
-    bottom: 0;
-    background-color: #333;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    position: absolute;
-    top: -33px;
-}
-
-.custom-slider .ngx-slider .ngx-slider-pointer:after {
-    display: none;
-}
-
-.custom-slider .ngx-slider .ngx-slider-bubble {
-    bottom: 10px;
-}
-
-.custom-slider .ngx-slider .ngx-slider-limit {
-    font-weight: bold;
-    color: orange;
-}
-
-.custom-slider .ngx-slider .ngx-slider-tick {
-    width: 1px;
-    height: 10px;
-    margin-left: 4px;
-    border-radius: 0;
-    background: #ffe4d1;
-    top: -1px;
-}
-
-.custom-slider .ngx-slider .ngx-slider-tick.ngx-slider-selected {
-    background: #22C3DB;
-} 

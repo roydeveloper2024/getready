@@ -1,0 +1,278 @@
+<div class="container">
+    <div class="row mb-3">
+        <div class="col text-center">
+            <h4><strong>Trainings Registration Form</strong></h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body  bg-card">
+                    <form [formGroup]="trainingForm">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="preference">Type of Training</label>
+                                    <p-dropdown [options]="trainingTypeOpt" id="preference"
+                                        formControlName="training_type" [style]="{'width':'100%'}"></p-dropdown>
+
+                                    <small class="text-danger" *ngIf="tf.training_type?.errors?.required">
+                                        Please select your training type.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="first_name">Firstname</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="first_name"
+                                        formControlName="first_name">
+
+                                    <small class="text-danger" *ngIf="tf.first_name?.errors?.required">
+                                        Firstname is required <br />
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="last_name">Lastname</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="last_name"
+                                        formControlName="last_name">
+
+                                    <small class="text-danger" *ngIf="tf.last_name?.errors?.required">
+                                        Lastname is required <br />
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="middle_name">Middlename</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="middle_name"
+                                        formControlName="middle_name">
+
+                                    <small class="text-danger" *ngIf="tf.middle_name?.errors?.required">
+                                        Middlename is required <br />
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="email"
+                                        formControlName="email">
+
+                                    <small class="text-danger" *ngIf="tf.email?.errors?.required">
+                                        Email is required <br />
+                                    </small>
+
+                                    <small class="text-danger" *ngIf="tf.email?.errors?.email">
+                                        Invalid Email<br />
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <div class="form-group">
+
+                                        <label for="mobile_number">Mobile Number</label>
+                                        <input type="text" class="form-control form-control-sm bg-fb" id="mobile_number"
+                                            formControlName="mobile_number">
+
+                                        <small class="text-danger" *ngIf="tf.mobile_number?.errors?.required">
+                                            Mobile Number is required <br />
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="preference">Preference</label>
+                                            <p-dropdown [options]="preferenceTypeOpt" id="preference"
+                                                formControlName="preference" [style]="{'width':'100%'}"></p-dropdown>
+
+                                            <small class="text-danger" *ngIf="tf.preference?.errors?.required">
+                                                Please select your preference.
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <label for="city">Attendee Type</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="attendee_type"
+                                        formControlName="attendee_type">
+
+                                    <small class="text-danger" *ngIf="tf.attendee_type?.errors?.required">
+                                        Attendee type is required <br />
+                                    </small>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <div class="form-group">
+
+                                        <label for="number_of_attendee">Expected No. of Attendees</label>
+                                        <input type="number" class="form-control form-control-sm bg-fb"
+                                            id="number_of_attendee" formControlName="number_of_attendee">
+
+                                        <small class="text-danger" *ngIf="tf.number_of_attendee?.errors?.required">
+                                            Number of attendee is required <br />
+                                        </small>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+
+                                    <div class="form-group">
+
+                                        <label for="location">Location</label>
+                                        <input type="text" class="form-control form-control-sm bg-fb" id="location"
+                                            formControlName="location">
+
+                                        <small class="text-danger" *ngIf="tf.location?.errors?.required">
+                                            Location is required <br />
+                                        </small>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <div class="form-group">
+
+                                        <label for="company_name">Company Name</label>
+                                        <input type="text" class="form-control form-control-sm bg-fb" id="company_name"
+                                            formControlName="company_name">
+
+                                        <small class="text-danger" *ngIf="tf.company_name?.errors?.required">
+                                            Company Name is required <br />
+                                        </small>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <div class="form-group">
+
+                                        <label for="company_desc">Company Address</label>
+                                        <input type="text" class="form-control form-control-sm bg-fb" id="company_desc"
+                                            formControlName="company_desc">
+
+                                        <small class="text-danger" *ngIf="tf.company_desc?.errors?.required">
+                                            Company Address is required <br />
+                                        </small>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+
+                                    <div class="form-group">
+
+                                        <label for="company_size">Company Size</label>
+                                        <input type="text" class="form-control form-control-sm bg-fb" id="company_size"
+                                            formControlName="company_size">
+
+                                        <small class="text-danger" *ngIf="tf.company_size?.errors?.required">
+                                            Company Size is required <br />
+                                        </small>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+
+                                    <div class="form-group">
+
+                                        <label for="further_desc">Further Description</label>
+                                        <input type="text" class="form-control form-control-sm bg-fb" id="further_desc"
+                                            formControlName="further_desc">
+
+                                        <small class="text-danger" *ngIf="tf.further_desc?.errors?.required">
+                                            Further Description is required <br />
+                                        </small>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <button  type="button" class="btn btn-secondary mt-3 p-2"
+                                (click)="submitTrainingForm()"
+                                [disabled]="!trainingForm.valid">SUBMIT</button>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-toast [style]="{marginTop: '80px'}"></p-toast>

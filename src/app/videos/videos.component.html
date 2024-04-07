@@ -1,0 +1,138 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h4>Product Videos</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 p-1" *ngFor="let l of productVidList.tblVal; let i = index" (click)="openPopup(l)">
+
+            <div class="card h-100 m-2 border-0 pointer card-wrapper">
+                <div class="row pointer" *ngIf="l.prod_vid_thumbnail">
+                    <div class="col">
+                        <img style="height: 200px;" src="{{ hostVid }}{{ l.prod_vid_thumbnail }}"
+                            class="img-fluid card-img-top">
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="!l.prod_vid_thumbnail">
+                    <div class="col">
+                        <img style="height: 200px;" src="assets/img/no-thumbnail.jpg" class="img-fluid card-img-top">
+                    </div>
+                </div>
+
+                <div class="card-body p-1">
+                    <h5 class="card-title text-danger text2">{{ l.prod_title }}</h5>
+                    <h6 class="card-subtitle text-danger mb-1">{{ l?.first_variant?.prod_var_price |
+                        currency:"PHP":"symbol" }}</h6>
+
+                    <h6 class="card-subtitle text-muted text">{{ l.prod_desc }}</h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h4>Related Videos</h4>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4 p-1" *ngFor="let l of videoList.tblVal; let i = index" (click)="openPopupVid(l)">
+
+            <div class="card h-100 m-2 border-0 pointer card-wrapper">
+                <div class="row pointer" *ngIf="l.vid_thumbnail">
+                    <div class="col">
+                        <img style="height: 200px;" src="{{ hostVid }}{{ l.vid_thumbnail }}"
+                            class="img-fluid card-img-top">
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="!l.vid_thumbnail">
+                    <div class="col">
+                        <img style="height: 200px;" src="assets/img/no-thumbnail.jpg" class="img-fluid card-img-top">
+                    </div>
+                </div>
+
+                <div class="card-body p-1">
+                    <h5 class="card-title text-danger text2">{{ l.vid_description }}</h5>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': displayStyle }">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn btn-primary" routerLink="/product/{{ selectedVid.prod_id }}">
+                    View Product
+                </button>
+
+                <button type="button" class="btn btn-danger" (click)="closePopup()">
+                    Close
+                </button>
+            </div>
+
+            <p-progressBar styleClass="rounded-0" *ngIf="loadingVid" mode="indeterminate" [style]="{'height': '6px'}">
+            </p-progressBar>
+
+            <div class="modal-body" *ngIf="playVid">
+
+                <video width="100%" height="500" controls>
+                    <source src="{{ hostVid }}{{ selectedVid.prod_vid_filename }}">
+                    <!-- <source src="mov_bbb.ogg" type="video/ogg"> -->
+                    Your browser does not support HTML video.
+                </video>
+
+            </div>
+            <div class="modal-footer">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': displayStyleVid }">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+
+                <button type="button" class="btn btn-danger" (click)="closePopup()">
+                    Close
+                </button>
+            </div>
+
+
+
+            <p-progressBar styleClass="rounded-0" *ngIf="loadingVid" mode="indeterminate" [style]="{'height': '6px'}">
+            </p-progressBar>
+
+            <div class="modal-body" *ngIf="playVid">
+
+                <video width="100%" height="500" controls>
+                    <source src="{{ hostVid }}{{ selectedVideo.vid_filename }}">
+                    <!-- <source src="mov_bbb.ogg" type="video/ogg"> -->
+                    Your browser does not support HTML video.
+                </video>
+
+            </div>
+            <div class="modal-footer">
+
+
+            </div>
+        </div>
+    </div>
+</div>

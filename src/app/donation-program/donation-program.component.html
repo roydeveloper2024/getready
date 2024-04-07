@@ -1,0 +1,674 @@
+<div class="container">
+    <div class="row mb-3">
+        <div class="col text-center">
+            <h4><strong>HOW OUR DONATION PROGRAM WORKS</strong></h4>
+        </div>
+    </div>
+
+    <div class="row">
+
+
+        <div class="col-md-12">
+            <p class="text-justify">
+                This special program is created to allow everyone to help one another, VOLUNTARILY! Individuals,
+                families or
+                organizations that cannot afford to buy but need help to procure emergency life saving tools and
+                equipment
+                can submit their petition and appeal here. Donors who are willing to help but sometimes do not know how
+                to
+                help, where to help, or whom to help can now view the list of those Needing Help here and decide which
+                petitioner
+                they can help. Not only that, Donors can also procure items for others not in the list but to a specific
+                friend or
+                an organization of your own choice just by filling up the form, completing the order process and typing
+                in their
+                details and we will have the items delivered to them! It's an Easy, No Hassle Way to Help Each Other
+                Save Lives!
+
+            </p>
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <div class="col text-center">
+            <h4><strong>NEED HELP</strong></h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-justify">
+                If you genuinely need the help and generosity of others to procure emergency life saving tools for your
+                needs,
+                kindly fill up the information required. Please take note that we do not guarantee that every appeal or
+                petition
+                will be entertained as this if fully dependent on the generosity of the donors. We only provide this
+                service to
+                help those in need reach out to those who are willing to help. You hereby agree that all information
+                provided
+                here are correct and true and you will fully indemnify us against any claims of damages or legal actions
+                taken
+                against us due to any information that you have provided as we are only a service provider doing it in
+                good faith
+                and we have no control over the information provided. We may contact you with some basic validation
+                before
+                your petition will be posted.
+                (You can only appeal for items that are found in the product list of this website.)
+
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 bg-light p-3">
+            <form [formGroup]="contactForm">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">Fullname</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="fullname"
+                                        formControlName="fullname">
+
+                                    <small class="text-danger" *ngIf="cf.fullname?.errors?.required">
+                                        Name is required <br />
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="preference">For</label>
+                                    <p-dropdown [options]="purposeOpt" id="preference" formControlName="purpose"
+                                        [style]="{'width':'100%'}"></p-dropdown>
+
+                                    <small class="text-danger" *ngIf="cf.purpose?.errors?.required">
+                                        Please select your purpose.
+                                    </small>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="contact">Why We Need</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="why_need"
+                                        formControlName="why_need">
+
+                                    <small class="text-danger" *ngIf="cf.why_need?.errors?.required">
+                                        Why do you need this items? <br />
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="contact">Contact</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="contact"
+                                        formControlName="contact">
+
+                                    <small class="text-danger" *ngIf="cf.contact?.errors?.required">
+                                        Contact is required <br />
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row" *ngIf="cf.purpose?.value == 'Organization Needs'">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="organization">Organization</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="organization"
+                                        formControlName="organization">
+
+                                    <small class="text-danger" *ngIf="cf.organization?.errors?.required">
+                                        Organization name is required <br />
+                                    </small>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="address"
+                                        formControlName="address">
+
+                                    <small class="text-danger" *ngIf="cf.address?.errors?.required">
+                                        Address is required <br />
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="tell_us_more">Tell Us More</label>
+
+                                    <textarea formControlName="tell_us_more" name="tell_us_more" id="" cols="30" rows="10" class="form-control form-control-sm bg-fb">
+
+                                    </textarea>
+
+                                    <small class="text-danger" *ngIf="cf.tell_us_more?.errors?.required">
+                                        Please tell us more how we can help you.<br />
+                                    </small>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group text-wrap">
+                                    <label for="description" class="">Attachment</label> <br/>
+
+                                    <small class="text-danger" *ngIf="cf.attachment_1?.errors?.required">
+
+                                        Please attach photo
+
+                                    </small>
+
+                                    <h6 style="color:red;" *ngIf="message">{{ message }}</h6>
+
+                                    <input type="file" (change)="onFileChange($event)" accept='image/*' />
+
+                                    <div *ngIf="imgURL">
+                                        <br/>
+
+                                        <img [src]="imgURL" style="height: 250px;"  class="img-fluid" >
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 text-left">
+                                <!-- <button type="button" class="btn btn-secondary" (click)="needModal = true"
+                                    [disabled]="!contactForm.valid">WHAT DO YOU NEED ?</button> -->
+
+                                <button type="button" class="btn btn-secondary" (click)="needModal = true">WHAT DO YOU
+                                    NEED ?</button>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-md-12 text-right">
+                                <button type="button" class="btn btn-primary" (click)="submitDonor()"
+                                    [disabled]="!contactForm.valid || wishList.length == 0">SUBMIT</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+
+						        <p-progressBar *ngIf="subOrderRes.load" styleClass="rounded-0" mode="indeterminate" [style]="{'height': '10px'}"></p-progressBar>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row" *ngIf="wishList.length > 0">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="float-left">
+                                <h4 class="card-title"><strong>Your Wish List</strong></h4>
+                                <h6 class="card-subtitle">Overview of your wish list</h6>
+                            </div>
+
+                            <div class="float-right">
+                                <button class="btn btn-secondary btn-sm" (click)="emptyWish()">EMPTY
+                                    WISH LIST</button>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="table-responsive mt-3">
+                                <table class="table table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>PRODUCT</th>
+                                            <th>PRICE</th>
+                                            <th>QUANTITY</th>
+                                            <th>TOTAL</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr *ngFor="let l of wishList">
+                                            <td>
+                                                <img *ngIf="l.featured_image" src="{{ host }}{{ l.featured_image }}"
+                                                    class="img-fluid" style="width: 50px;">
+
+                                                <img *ngIf="!l.featured_image" src="assets/img/no-prev.jpg"
+                                                    class="img-fluid" style="width: 50px;">
+
+                                            </td>
+                                            <td>
+                                                <strong>{{ l.prod_title }}</strong>
+                                            </td>
+                                            <td>
+                                                &#8369; {{ l.prod_var_price }}
+                                            </td>
+                                            <td>
+
+                                                <p-inputNumber styleClass="gprh-p-inputnumber" [(ngModel)]="l.prod_qty"
+                                                    [showButtons]="true" buttonLayout="horizontal" inputId="horizontal"
+                                                    spinnerMode="horizontal" [step]="1"
+                                                    decrementButtonClass="p-button-danger"
+                                                    incrementButtonClass="p-button-success"
+                                                    incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+                                                    [min]="1" [max]="l.prod_var_stock" (onInput)="changeInput(l)">
+                                                </p-inputNumber>
+
+
+                                            </td>
+
+                                            <td>
+                                                &#8369; {{ l.prod_qty * l.prod_var_price }}
+                                            </td>
+
+                                            <td>
+                                                <small>
+                                                    <strong class="text-muted pointer" (click)="removeWishItem(l)">
+                                                        DELETE
+                                                    </strong>
+                                                </small>
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+
+                                <div class="container-fluid" *ngIf="wishList.length == 0">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <h6 class="text-muted">Your cart is empty</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <h4><strong>Sub total: &#8369; {{ total }}</strong></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row mb-3">
+        <div class="col text-center">
+            <h4><strong>I WOULD LIKE TO DONATE AND I AM WILLING TO HELP</strong></h4>
+        </div>
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-md-12">
+            <p class="text-justify">
+                If you genuinely would like to help others, now is the opportunity to do so! You can just select from
+                the list of
+                petitioners here and pick which you would like to help. You can also donate to any individual, family or
+                organization
+                of your choice by filling in the recipients information in the fields below. Upon agreeing to donate,
+                you hereby agree
+                that you are not coerced, encouraged or forced to donate and you are doing so on a voluntary basis. You
+                hereby also
+                agree that we shall not be held responsible or liable in any way should any information provided by the
+                petitioner
+                is found to be false or inaccurate and understand that we are acting just as a service provider helping
+                out in good faith.
+                You are encouraged to contact the petitioner directly to verify their appeal before proceeding with the
+                donation process.
+                (You can only donate items that are found in the product list of this website.)
+            </p>
+        </div>
+
+        <div class="col-md-12 text-center">
+            <button class="btn btn-primary p-3" routerLink="/beneficiaries">VIEW BENEFICIARIES</button>
+        </div>
+    </div>
+</div>
+
+
+<p-dialog header="BENEFICIARIES NEEDING HELP (Register Here)" [(visible)]="displayAuth"
+    styleClass="col-11 col-md-8 mt-5" [modal]="true" [baseZIndex]="8000" [draggable]="false">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-12 mb-3 text-center">
+                        <h4 class="card-title"><strong>SIGN IN</strong></h4>
+                    </div>
+                </div>
+
+                <form [formGroup]="loginForm" (keyup.enter)="submitLoginForm('enter')">
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input type="email" class="form-control" id="email" formControlName="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd" formControlName="password">
+                    </div>
+
+                    <button type="button" class="btn btn-primary mb-1" (click)="submitLoginForm('button')"
+                        [disabled]="!loginForm.valid">Submit</button>
+
+
+                </form>
+            </div>
+
+            <div class="col-md-8">
+                <div class="row">
+                    <!-- <div class="col-md-3 offset-md-1">
+                        <img src="assets/img/getready-for-free.jpg" alt="" class="img-fluid">
+                    </div> -->
+
+                    <div class="col-md-12 bg-light">
+                        <div class="card-transparent">
+                            <div class="card-body">
+
+                                <form [formGroup]="signUpForm" class="container-fluid"
+                                    (keyup.enter)="submitSignUpForm('enter')">
+                                    <div class="row">
+                                        <div class="col-12 mb-3 text-center">
+                                            <h4 class="card-title"><strong>SIGN UP FOR FREE !</strong></h4>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="name">Fullname</label>
+                                                <input type="text" class="form-control form-control-sm bg-fb" id="name"
+                                                    formControlName="name">
+
+                                                <small class="text-danger" *ngIf="sf.name?.errors?.required">
+                                                    Fullname is required <br />
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input type="text" class="form-control form-control-sm bg-fb" id="email"
+                                                    formControlName="email">
+
+                                                <small class="text-danger" *ngIf="sf.email?.errors?.required">
+                                                    Email is required <br />
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="product_type text-bbi-light">Gender</label>
+
+                                        <p-dropdown [options]="genderOpt" id="order_status" formControlName="gender"
+                                            [style]="{'width':'100%'}">
+                                        </p-dropdown>
+
+                                        <small class="text-danger" *ngIf="sf.gender?.errors?.required">
+                                            Gender is required<br />
+                                        </small>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="contact">Contact</label>
+                                                <input type="text" class="form-control form-control-sm bg-fb"
+                                                    id="contact" formControlName="contact">
+
+                                                <small class="text-danger" *ngIf="sf.contact?.errors?.required">
+                                                    Contact is required <br />
+                                                </small>
+
+                                                <span class="text-danger" *ngIf="sf.contact.errors?.minlength">Please
+                                                    provide valid contact<br /></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="contact">Address</label>
+                                                <input type="address" class="form-control form-control-sm bg-fb"
+                                                    id="address" formControlName="address">
+
+                                                <small class="text-danger" *ngIf="sf.address?.errors?.required">
+                                                    Address is required <br />
+                                                </small>
+
+                                                <span class="text-danger" *ngIf="sf.address.errors?.minlength">Please
+                                                    provide address<br /></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <input type="password" class="form-control form-control-sm bg-fb"
+                                                    id="password" formControlName="password">
+
+                                                <small *ngIf="sf?.password.dirty" class="text-danger">
+                                                    <span *ngIf="sf.password.errors?.required">Password is
+                                                        required<br /></span>
+                                                    <span *ngIf="sf.password.errors?.minlength">Min length is
+                                                        6<br /></span>
+                                                    <span *ngIf="sf.password.errors?.hasNumber">Must have at least 1
+                                                        number!<br /></span>
+
+                                                    <span *ngIf="sf.password.errors?.hasCapitalCase">Must contain at
+                                                        least 1 in Capital Case!<br /></span>
+                                                    <span *ngIf="sf.password.errors?.hasSmallCase">Must contain at
+                                                        least 1 Letter in Small Case!<br /></span>
+
+                                                    <span *ngIf="sf.password.errors?.hasSpecialChar">Must contain at
+                                                        least 1 Special Character</span>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="c_password">Confirm Password</label>
+                                                <input type="password" class="form-control form-control-sm bg-fb"
+                                                    id="c_password" formControlName="c_password">
+
+
+                                                <small *ngIf="sf?.c_password.dirty" class="text-danger">
+                                                    <span *ngIf="sf.c_password.errors?.required">Confirm password is
+                                                        required<br /></span>
+                                                    <span *ngIf="sf.c_password.errors?.minlength">Min length is
+                                                        6<br /></span>
+                                                    <span *ngIf="sf.c_password.errors?.mustMatch">Password do not
+                                                        match</span>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col text-right">
+                                            <button type="button" class="btn btn-primary mb-1"
+                                                (click)="submitSignUpForm('button')"
+                                                [disabled]="!signUpForm.valid">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <p class="text-justify">
+                            By signing up as a Member of GetReady.ph, you will receive information on how to prepare and
+                            deal with various emergencies, what to do during natural disasters, who to call, get useful
+                            tips that can help save your life and know what are the latest emergency preparedness
+                            innovations available in the market.
+                        </p>
+
+                        <p class="text-justify">
+                            You don't need to pay or buy anything to receive the benefits as our Member because it is
+                            our core advocacy to help save lives! So hurry up and be part of our GetReady.ph Family!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</p-dialog>
+
+
+<p-dialog header="PLEASE SELECT YOUR NEEDS" [(visible)]="needModal" styleClass="col-11 col-md-12 mt-5" [modal]="true"
+    [baseZIndex]="8000" [draggable]="false">
+
+    <div class="container-fluid">
+        <div class="row mt-2">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col mb-1">
+                        <h4>All Products</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+
+
+                        <div class="input-group input-group-sm mb-3">
+
+                            <input type="text" class="form-control" placeholder="Search here.." aria-label="Small"
+                                aria-describedby="inputGroup-sizing-sm" [(ngModel)]="filterSearch">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col mb-1">
+                        <button class="btn btn-sm btn-light p-1" (click)="resetFilter()" *ngIf="filtered">
+                            <small>Reset Filters</small>
+                        </button>
+                        <ul style="list-style-type:none; padding: 0;">
+                            <li><strong>Category</strong></li>
+
+                            <li class="pointer hover-type" (click)="filterProductType(l)" *ngFor="let l of productType">
+                                {{ l.prod_type_title }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9 mb-2">
+
+
+                <div class="row">
+                    <div class="col-md-12" *ngIf="category">
+                        <h4>Category > {{ category }}</h4>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4"
+                                *ngFor="let l of displayFeaturedProduct.tblVal | searchFilter : filterSearch:filterBy">
+
+                                <button class="btn btn-sm m-1 btn-success" (click)="addToWishList(l)">+ To wish
+                                    list</button>
+
+                                <div class="card h-100 m-2 border-0 pointer card-wrapper">
+                                    <img *ngIf="l.featured_image"
+                                        src="{{ host }}{{ l.featured_image.prod_img_filename }}"
+                                        class="img-fluid card-img-top" style="max-height: 250px;">
+
+                                    <img *ngIf="!l.featured_image" src="assets/img/no-prev.jpg"
+                                        class="img-fluid card-img-top" style="max-height: 250px;">
+
+                                    <div class="card-body p-1">
+                                        <h5 class="card-title text-danger text2">{{ l.prod_title }}</h5>
+                                        <h6 class="card-subtitle text-danger mb-1">{{ l?.first_variant?.prod_var_price |
+                                            currency:"PHP":"symbol" }}</h6>
+
+                                        <h6 class="card-subtitle text-muted text">{{ l.prod_desc }}</h6>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="p-5">
+
+            </p>
+        </div>
+
+    </div>
+
+</p-dialog>
+
+
+<p-dialog header="" [(visible)]="displaySuccessDialog"
+    styleClass="col-11 col-md-6 mt-5" [modal]="true" [baseZIndex]="6000" [draggable]="false">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                Your application is being reviewed please wait for our approval
+            </div>
+        </div>
+
+    </div>
+
+</p-dialog>
+
+
+
+<p-toast [style]="{marginTop: '80px'}" [baseZIndex]="99999"></p-toast>
+
+
+

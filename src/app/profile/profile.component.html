@@ -1,0 +1,281 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col">
+                    <h4>MY ORDERS</h4>
+                </div>
+            </div>
+            <div class="row" *ngFor="let l of orderTbl.tblVal">
+                <div class="col">
+
+                    <div class="row">
+                        <div class="col">
+                            <h4><strong>Order reference # {{ l?.order_ref }}</strong></h4>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Order Details</h5>
+
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h6><small>Customer name</small></h6>
+                                                <strong>{{ l?.customer_name }}</strong>
+
+                                                <h6><small>Customer email</small></h6>
+                                                <strong>{{ l?.email }}</strong>
+
+
+                                                <h6><small>Customer address</small></h6>
+                                                <strong>{{ l?.customer_address }}</strong>
+
+                                                <h6><small>Customer address state</small></h6>
+                                                <strong>{{ l?.customer_state }}</strong>
+
+                                                <h6><small>Customer address country</small></h6>
+                                                <strong>{{ l?.customer_country }}</strong>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6><small>Checkout date</small></h6>
+                                                <strong>{{ formatDate(l?.created_at) }}</strong>
+
+                                                <h6><small>Payment method</small></h6>
+                                                <strong>{{ l?.payment_method }}</strong>
+
+                                                <h6><small>Payment date</small></h6>
+                                                <strong>{{ l?.payment_date ? formatDate(l?.payment_date) :
+                                                    'N/A'}}</strong>
+
+
+                                                <h6><small>Order Status</small></h6>
+                                                <strong>{{ l?.order_status }}</strong>
+
+
+                                                <h6><small>Payment Status</small></h6>
+
+                                                <span class="badge" [ngClass]="l?.payment_status == 'pending' ? 'badge-warning' : l?.payment_status == 'accepted' ? 'badge-success' : 'badge-danger' ">
+                                                    {{ l?.payment_status }}
+                                                </span>
+
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Order Total &#8369; {{ l?.order_receipt?.or_total}}</h5>
+
+                                    <p-table #dt2 [columns]="orderProductTbl.tblHeader" [value]="l?.order_products"
+                                        [paginator]="true" [rows]="15" [responsive]="true" styleClass="p-datatable-sm"
+                                        selectionMode="single">
+                                        <ng-template pTemplate="caption">
+
+                                            <strong style="float: left;">Count {{ l?.order_products.length }}</strong>
+
+                                            <!-- <div style="text-align: right;">
+
+                                                <i class="fa fa-search" style="margin:4px 4px 0 0;"></i>
+                                                <input type="text" pInputText placeholder="Global Filter"
+                                                    (input)="dt2.filterGlobal($event.target.value, 'contains')" style="width:auto;">
+                                            </div> -->
+
+                                        </ng-template>
+
+                                        <ng-template pTemplate="header" let-columns>
+                                            <tr>
+
+                                                <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                                                    {{col.header}}
+                                                    <!--  <p-sortIcon [field]="col.field"></p-sortIcon> -->
+                                                </th>
+                                            </tr>
+                                        </ng-template>
+
+                                        <ng-template pTemplate="body" let-rowData let-columns="columns"
+                                            let-index="rowIndex">
+                                            <tr [pSelectableRow]="rowData">
+
+                                                <td *ngFor="let col of columns" [ngSwitch]="col.field"
+                                                    class="us-bg-dark text-wrap p-1" style="word-wrap: break-word"
+                                                    text-right routerLink="/product/{{ rowData['prod_id'] }}">
+
+                                                    <div *ngSwitchCase="'prod_img_filename'" class="text-center">
+                                                        <img *ngIf="rowData[col.field]"
+                                                            src="{{ host }}{{ rowData[col.field] }}" class="img-fluid"
+                                                            style="width: 50px;">
+
+                                                        <img *ngIf="!rowData[col.field]" src="assets/img/no-prev.jpg"
+                                                            class="img-fluid" style="width: 50px;">
+                                                    </div>
+
+
+
+                                                    <div *ngSwitchCase="'prod_var_price'" class="text-center">
+                                                        P {{ rowData[col.field] * rowData['prod_var_qty'] }}
+                                                    </div>
+
+                                                    <div *ngSwitchCase="'created_at'" class="text-center">
+                                                        {{ formatDate(rowData[col.field]) }}
+                                                    </div>
+
+                                                    <div *ngSwitchDefault class="text-center">
+                                                        {{ rowData[col.field] }}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </ng-template>
+                                    </p-table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col">
+                    <h4>DONOR APPLICATION PROGRAM</h4>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="benTbl.tblVal.length == 0 && !benTbl.tblLoad">
+                <div class="col">
+                    <img src="assets/img/donor-banner.png" alt="" class="img-fluid pointer"
+                                routerLink="/donation-program">
+                </div>
+            </div>
+            <div class="row" *ngIf="benTbl.tblVal.length > 0 && !benTbl.tblLoad">
+				<div class="col-md-12 mb-2" *ngFor="let l of benTbl.tblVal">
+					<div class="card">
+						<div class="card-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-3">
+										<h6><small>Date submitted</small></h6>
+										<strong>{{ formatDate(l?.created_at) }}</strong>
+
+
+										<h6><small>Email</small></h6>
+										<strong>{{ l?.email }}</strong>
+
+										<h6><small>Fullname</small></h6>
+										<strong>{{ l?.fullname }}</strong>
+
+
+										<h6><small>Mobile number</small></h6>
+										<strong>{{ l?.contact }}</strong>
+
+										<h6><small>Status</small></h6>
+
+										<span class="badge" [ngClass]="l?.status == 'pending' ? 'badge-warning' : l?.status == 'accepted' ? 'badge-success' : 'badge-danger' ">
+                                            {{ l?.status }}
+                                        </span>
+
+
+										<h6><small>Purpose</small></h6>
+										<strong>{{ l?.purpose }}</strong>
+
+
+										<h6><small>Why they need</small></h6>
+										<strong>{{ l?.why_need }}</strong>
+
+									</div>
+									<div class="col-md-9">
+										<h5 class="float-left">Need lists</h5>
+
+										<!-- <button class="btn btn-secondary float-right btn-sm" (click)="showAction(l)">ACTION</button> -->
+
+										<div class="clearfix"></div>
+
+										<div class="table-responsive mt-3">
+											<table class="table table-borderless">
+												<thead>
+													<tr>
+														<th></th>
+														<th>PRODUCT</th>
+
+														<th>QUANTITY</th>
+
+														<th>PRICE</th>
+
+														<th>TOTAL</th>
+
+													</tr>
+												</thead>
+
+
+												<tbody>
+													<tr *ngFor="let ln of l.needs">
+														<td>
+															<img *ngIf="ln.prod_img_filename"
+																src="{{ host }}{{ ln.prod_img_filename }}" class="img-fluid"
+																style="width: 50px;">
+
+															<img *ngIf="!ln.prod_img_filename" src="assets/img/no-prev.jpg"
+																class="img-fluid" style="width: 50px;">
+
+														</td>
+														<td>
+															<strong>{{ ln.prod_var_title }}</strong>
+														</td>
+
+														<td class="text-center">
+															<strong>{{ ln.qty }}</strong>
+														</td>
+
+
+
+														<td>
+															&#8369; {{ ln.prod_var_price }}
+														</td>
+
+														<td>
+															&#8369; {{ ln.qty * ln.prod_var_price }}
+														</td>
+													</tr>
+
+												</tbody>
+											</table>
+										</div>
+
+										<div class="row">
+											<div class="col">
+												<h5 class="">Attachment</h5>
+
+												<img *ngIf="l.attachment_1" src="{{ host }}{{ l.attachment_1 }}" class="img-fluid" style="width: 250px;">
+
+											</div>
+										</div>
+
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+        </div>
+    </div>
+</div>

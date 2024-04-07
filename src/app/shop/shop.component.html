@@ -1,0 +1,105 @@
+<div class="container">
+
+
+
+    <div class="row mt-2">
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col mb-1">
+                    <h4>All Products</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+
+
+                    <div class="input-group input-group-sm mb-3">
+
+                        <input type="text" class="form-control" placeholder="Search here.." aria-label="Small"
+                            aria-describedby="inputGroup-sizing-sm" [(ngModel)]="filterSearch">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col mb-1">
+                    <button class="btn btn-sm btn-light p-1" (click)="resetFilter()" *ngIf="filtered">
+                        <small>Reset Filters</small>
+                    </button>
+                    <ul style="list-style-type:none; padding: 0;">
+                        <li><strong>Category</strong></li>
+
+                        <li class="pointer hover-type" (click)="filterProductType(l)" *ngFor="let l of productType">
+                            {{ l.prod_type_title }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9 mb-2">
+
+
+            <div class="row">
+                <div class="col-md-12" *ngIf="category">
+                    <h4>Category > {{ category }}</h4>
+                </div>
+
+                <div class="col-md-12" *ngIf="featuredProduct.tblVal.length == 0">
+                    <h4>Product not found.</h4>
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4"
+                            *ngFor="let l of displayFeaturedProduct.tblVal | searchFilter : filterSearch:filterBy"
+                            routerLink="/product/{{ l.prod_id }}">
+                            <div class="card h-100 m-2 border-0 pointer card-wrapper">
+                                <img *ngIf="l.featured_image" src="{{ host }}{{ l.featured_image.prod_img_filename }}"
+                                    class="img-fluid card-img-top" style="max-height: 250px;">
+
+                                <img *ngIf="!l.featured_image" src="assets/img/no-prev.jpg"
+                                    class="img-fluid card-img-top" style="max-height: 250px;">
+
+                                <div class="card-body p-1">
+                                    <h5 class="card-title text-danger text2">{{ l.prod_title }}</h5>
+                                    <h6 class="card-subtitle text-danger mb-1">{{ l?.first_variant?.prod_var_price |
+                                        currency:"PHP":"symbol" }}</h6>
+
+                                    <h6 class="card-subtitle text-muted text">{{ l.prod_desc }}</h6>
+                                </div>
+
+                                <!-- <div class="card-hover">
+                                    <div class="row h-100">
+                                        <div class="col d-flex align-items-center justify-content-center">
+
+                                            <button class="btn rounded-circle m-1 btn-circle" (click)="addToCart(l)">
+                                                <img src="assets/icons/carthoverwhite.png">
+                                            </button>
+                                            <button class="btn rounded-circle m-1 btn-circle"
+                                                routerLink="/product/{{ l.prod_id }}">
+                                                <img src="assets/icons/viewcartwhite.png">
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <p class="p-5">
+
+        </p>
+    </div>
+
+
+    <p-toast [style]="{marginTop: '80px'}"></p-toast>

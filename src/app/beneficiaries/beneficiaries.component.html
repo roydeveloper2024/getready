@@ -1,0 +1,159 @@
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col-md-8 offset-md-2">
+            <div class="float-left">
+                <h4><strong>LIST OF OUR BENEFICIARIES</strong></h4>
+                <h5>Please select your choice</h5>
+            </div>
+
+            <button class="btn btn-secondary btn-sm float-right" routerLink="/checkout"><i
+                    class="pi pi-shopping-cart"></i> DONATION
+                CART</button>
+
+
+            <a (click)="share()"><button type="button" class="btn btn-facebook btn-sm ml-2"><i
+                        class="fa fa-facebook fa-2"></i> Share on Facebook</button></a>
+
+        </div>
+    </div>
+
+    <div class="row">
+
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4" *ngFor="let l of beneficiaries.tblVal">
+
+                    <div class="card pointer">
+
+
+                        <div class="card-body">
+                            <a (click)="shareById(l)"><button type="button"
+                                    class="btn btn-facebook btn-sm ml-2 float-right"><i class="fa fa-facebook fa-2"></i>
+                                    Share</button></a>
+
+
+
+                            <h5 class="card-title" *ngIf="l.organization">Name: {{ l?.organization }}</h5>
+
+                            <h5 class="card-title" *ngIf="!l.organization">Name: {{ l?.fullname }}</h5>
+                            <h6 class="card-subtitle">Purpose: {{ l?.purpose }}</h6>
+                            <!-- <h6 class="card-subtitle">Date {{ l?.created_at }}</h6> -->
+                            <!-- <h6 class="card-subtitle">{{ l?.purpose }}</h6> -->
+                            <p class="text-justify mt-2">
+                                {{ l?.tell_us_more}}
+                            </p>
+
+                            <p class="text-justify mt-2">
+                                {{ l?.why_need}}
+                            </p>
+
+                            <div class="container-fluid p-0 mb-2">
+                                <div class="row">
+                                    <div class="col p-0">
+                                        <img *ngIf="l.attachment_1" src="{{ host }}{{ l.attachment_1 }}"
+                                            class="img-fluid card-img-top" style="max-height: 250px;">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <h4 class="text-primary float-left">Needs</h4>
+
+                            <button class="btn btn-sm btn-danger float-right"
+                                (click)="openBeneficiaries(l)">HELP</button>
+
+                            <div class="clearfix"></div>
+
+
+
+                            <div class="container-fluid p-0">
+
+                                <div class="row">
+                                    <div class="col p-0">
+                                        <div class="card mb-1" *ngFor="let ln of l.needs">
+                                            <div class="card-body">
+                                                <h6><strong>{{ ln.prod_var_title }}</strong></h6>
+                                                <h6>Qty x{{ ln.qty }}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<p-toast [style]="{marginTop: '80px'}" [baseZIndex]="8001"></p-toast>
+
+<p-dialog header="Beneficiary wish list" [(visible)]="displayWishList" styleClass="col-11 col-md-6 mt-3" [modal]="true"
+    [baseZIndex]="8000" [draggable]="false">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col">
+                <div class="float-left">
+                    <h5 class="card-title">Name: {{ selectedBeneficiary?.fullname }}</h5>
+                    <h6 class="card-subtitle">Purpose: {{ selectedBeneficiary?.purpose }}</h6>
+                </div>
+
+
+
+                <button class="btn btn-secondary btn-sm float-right" routerLink="/checkout"><i
+                        class="pi pi-shopping-cart"></i> DONATION
+                    CART</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive mt-3">
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>PRODUCT</th>
+                                <th>PRICE</th>
+
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let l of beneficiaryNeeds">
+                                <td>
+                                    <img *ngIf="l.prod_img_filename" src="{{ host }}{{ l.prod_img_filename }}"
+                                        class="img-fluid" style="width: 50px;">
+
+                                    <img *ngIf="!l.prod_img_filename" src="assets/img/no-prev.jpg" class="img-fluid"
+                                        style="width: 50px;">
+
+                                </td>
+                                <td>
+                                    <strong>{{ l.prod_var_title }}</strong>
+                                </td>
+                                <td>
+                                    &#8369; {{ l.prod_var_price }}
+                                </td>
+
+                                <td>
+                                    <small>
+                                        <strong class="text-muted pointer" (click)="addToCart(l)">
+                                            Add
+                                        </strong>
+                                    </small>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</p-dialog>

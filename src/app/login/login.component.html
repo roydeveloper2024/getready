@@ -1,0 +1,167 @@
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col text-center">
+            <!-- <h4><strong>Frequently Asked Questions</strong></h4> -->
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3 offset-md-1">
+            <img src="assets/img/getready-for-free.jpg" alt="" class="img-fluid">
+        </div>
+
+        <div class="col-md-4 bg-light">
+            <div class="card-transparent">
+                <div class="card-body">
+
+                    <form [formGroup]="signUpForm" class="container-fluid" (keyup.enter)="submitSignUpForm('enter')">
+                        <div class="row">
+                            <div class="col-12 mb-3 text-center">
+                                <h4 class="card-title"><strong>SIGN UP FOR FREE !</strong></h4>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="name">Fullname</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="name"
+                                        formControlName="name">
+
+                                    <small class="text-danger" *ngIf="sf.name?.errors?.required">
+                                        Fullname is required <br />
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="email"
+                                        formControlName="email">
+
+                                    <small class="text-danger" *ngIf="sf.email?.errors?.required">
+                                        Email is required <br />
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product_type text-bbi-light">Gender</label>
+
+                            <p-dropdown [options]="genderOpt" id="order_status"
+                                formControlName="gender" [style]="{'width':'100%'}">
+                            </p-dropdown>
+
+                            <small class="text-danger" *ngIf="sf.gender?.errors?.required">
+                                Gender is required<br />
+                            </small>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="contact">Contact</label>
+                                    <input type="text" class="form-control form-control-sm bg-fb" id="contact"
+                                        formControlName="contact">
+
+                                    <small class="text-danger" *ngIf="sf.contact?.errors?.required">
+                                        Contact is required <br />
+                                    </small>
+
+                                    <span class="text-danger" *ngIf="sf.contact.errors?.minlength">Please provide valid contact<br /></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="contact">Address</label>
+                                    <input type="address" class="form-control form-control-sm bg-fb" id="address"
+                                        formControlName="address">
+
+                                    <small class="text-danger" *ngIf="sf.address?.errors?.required">
+                                        Address is required <br />
+                                    </small>
+
+                                    <span class="text-danger" *ngIf="sf.address.errors?.minlength">Please provide address<br /></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control form-control-sm bg-fb" id="password"
+                                        formControlName="password">
+
+                                    <small *ngIf="sf?.password.dirty" class="text-danger">
+                                        <span *ngIf="sf.password.errors?.required">Password is
+                                            required<br /></span>
+                                        <span *ngIf="sf.password.errors?.minlength">Min length is
+                                            6<br /></span>
+                                        <span *ngIf="sf.password.errors?.hasNumber">Must have at least 1
+                                            number!<br /></span>
+
+                                        <span *ngIf="sf.password.errors?.hasCapitalCase">Must contain at
+                                            least 1 in Capital Case!<br /></span>
+                                        <span *ngIf="sf.password.errors?.hasSmallCase">Must contain at
+                                            least 1 Letter in Small Case!<br /></span>
+
+                                        <span *ngIf="sf.password.errors?.hasSpecialChar">Must contain at
+                                            least 1 Special Character</span>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="c_password">Confirm Password</label>
+                                    <input type="password" class="form-control form-control-sm bg-fb" id="c_password"
+                                        formControlName="c_password">
+
+
+                                    <small *ngIf="sf?.c_password.dirty" class="text-danger">
+                                        <span *ngIf="sf.c_password.errors?.required">Confirm password is
+                                            required<br /></span>
+                                        <span *ngIf="sf.c_password.errors?.minlength">Min length is
+                                            6<br /></span>
+                                        <span *ngIf="sf.c_password.errors?.mustMatch">Password do not
+                                            match</span>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-right">
+                                <button type="button" class="btn btn-primary mb-1" (click)="submitSignUpForm('button')" [disabled]="!signUpForm.valid">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <p class="text-justify">
+                By signing up as a Member of GetReady.ph, you will receive information on how to prepare and deal with various emergencies, what to do during natural disasters, who to call, get useful tips that can help save your life and know what are the latest emergency preparedness innovations available in the market.
+            </p>
+
+            <p class="text-justify">
+                You don't need to pay or buy anything to receive the benefits as our Member because it is our core advocacy to help save lives! So hurry up and be part of our GetReady.ph Family!
+            </p>
+        </div>
+    </div>
+</div>
+
+<p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>

@@ -1,53 +1,947 @@
-<div class="container-fluid">
+<div class="container">
+	<div class="row">
+		<div class="col-md-auto">
+			<button class="btn btn-danger rounded-0 p-1">ANNOUNCEMENT</button>
+		</div>
 
-	<div class="row mb-5">
-		<div class="col-md-12 text-center">
-			<img src="assets/img/homebanner.jpg" class="img-fluid" alt="Responsive image" style="height: 300px;">
-		</div>
-	</div>
-	<div class="row mb-5">
-		<div class="col-md-4 text-md-right">
-			<img src="assets/img/homemission.jpg" class="img-fluid" alt="Responsive image" style="height: 300px;">
-		</div>
-		<div class="col-md-4 text-md-center">
-			<img src="assets/img/homevission.jpg" class="img-fluid" alt="Responsive image" style="height: 300px;">
-
-		</div>
-		<div class="col-md-4 text-md-left">
-			<img src="assets/img/homecore.jpg" class="img-fluid" alt="Responsive image" style="height: 300px;">
+		<div class="col border">
+			<marquee behavior="scroll" direction="left">
+				<strong>Welcome to GetReady.ph! The first fully integrated one-stop virtual portal in the Philippines
+					dedicated to Safety and Emergency Preparedness Needs. It's an online resource center, an online help
+					reference center and an e-shopping site for your essential preparedness needs, all rolled into one!
+				</strong>
+			</marquee>
 		</div>
 	</div>
 
-	<!-- <div class="row mb-5">
-		<div class="col-md-12 text-center">
-			
-		</div>
-	</div> -->
+	<div class="row mt-2">
+		<div class="col-md-9">
+			<div class="row mb-2">
+				<div class="col" style="height: 300px;">
+					<img src="assets/img/bannerfinal1.png" alt="" class="img-fluid banner">
+				</div>
+			</div>
 
-	<div class="row mb-5">
-		<div class="col-md-12 text-center">
-			<img src="assets/img/prescorner.jpg" class="img-fluid" alt="Responsive image">
+			<div class="row ">
+				<div class="col text-justify mb-2">
+					<div class="text-white bg-orange p-1">
+						<p>
+							<small>
+								<strong>
+									The world is no longer a safe place. Pandemics, natural disasters, man induced
+									terrors,
+									accidents are constantly making headlines all over the world. They can happen
+									anytime,
+									anywhere. Here at GetReadyPH, we strive to provide you with a one-stop online
+									resource
+									center and e-marketplace where you can learn and find out what to do,
+									where to seek help and what you need to have to be better prepared and equipped for
+									the
+									unknown.
+								</strong>
+							</small>
+
+						</p>
+					</div>
+
+				</div>
+			</div>
 		</div>
 
+		<div class="col-md-3">
+			<ul class="list-unstyled">
+				<li class="media">
+					<img class="mr-3 img-fluid mb-2" src="assets/img/emergencyguid.jpg" style="height: 100px;"
+						alt="Generic placeholder image">
+					<div class="media-body">
+						<h5 class="mt-0 mb-1">Emergency Guide</h5>
+						<a href="javascript:void(0)" class="text-grph-red" routerLink="/emergency-guide"><strong>Click
+								Here</strong></a>
+					</div>
+				</li>
+
+				<li class="media">
+					<img class="mr-3 img-fluid mb-2" src="assets/img/emergencyhotline.jpg"
+						style="height: 100px; width: 133px;" alt="Generic placeholder image">
+					<div class="media-body">
+						<h5 class="mt-0 mb-1">Emergency Hotlines</h5>
+						<a href="javascript:void(0)" class="text-grph-red"
+							(click)="openEmergencyHotlineModal()"><strong>Click Here</strong></a>
+					</div>
+				</li>
+
+				<li class="media">
+					<img class="mr-3 img-fluid mb-2" src="assets/img/faultline.jpg" style="height: 100px; width: 133px;"
+						alt="Generic placeholder image">
+					<div class="media-body">
+						<h5 class="mt-0 mb-1">Fault Line Locator</h5>
+
+						<a href="http://faultfinder.phivolcs.dost.gov.ph/" target="_blank"
+							class="text-grph-red"><strong>Click
+								Here</strong></a>
+					</div>
+				</li>
+
+				<li class="media">
+					<img class="mr-3 img-fluid mb-2" src="https://getready.ph/grphapi/storage/gallery_video/NQOg5La0mqYL0fSIpl7FL0mDPDUaj07Sp3dMcPA1.jpg"
+						style="height: 100px; width: 133px;" alt="Generic placeholder image">
+					<div class="media-body">
+						<h5 class="mt-0 mb-1">Related Videos</h5>
+						<a href="javascript:void(0)" routerLink="/videos" class="text-grph-red"><strong>Click
+								Here</strong></a>
+<!--
+						<a href="javascript:void(0)" (click)="displayVideo = true" class="text-grph-red"><strong>Click
+								Here</strong></a> -->
+
+					</div>
+				</li>
+
+			</ul>
+		</div>
 	</div>
 
 
-	<div class="row mb-5">
-		<div class="col-md-12 text-center">
-			<img src="assets/img/aniv2.jpg" class="img-fluid mt-5" alt="Responsive image">
+	<div class="row mt-2">
+		<div class="col-md-3">
+			<div class="row mb-1">
+				<div class="col">
+					<div class="round-div-btn">
+						<small><strong>WHAT YOU NEED TO KNOW
+								Earthquake, Typhoon, Flood, Fire & Pandemic</strong></small> <br />
+
+						<a href="javascript:void(0)" class="text-grph-red"
+							routerLink="/what-to-do-in-an-emergercy"><strong>Click
+								Here</strong></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<div class="round-div-btn">
+						<small><strong>TRAININGS <br />
+								Learn What To Do</strong></small> <br />
+
+						<a href="javascript:void(0)" class="text-grph-red" routerLink="/training"><strong>Click
+								Here</strong></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="row mb-1">
+				<div class="col">
+					<img src="assets/img/getready-for-free.jpg" alt="" class="img-fluid">
+				</div>
+			</div>
+
+			<div class="row m-2">
+				<div class="col">
+					<small><strong>Social Media</strong></small> <br />
+					<img src="assets/img/sidefacebook.png" alt="" class="img-fluid mr-1">
+					<img src="assets/img/socialmedia.png" alt="" class="img-fluid mr-1">
+					<!-- <img src="assets/img/sidetwitter.png" alt="" class="img-fluid mr-1"> -->
+				</div>
+			</div>
+
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong class="mb-2">Looking for an emergency preparedness expert?</strong> <br />
+
+					<small>
+						If your company is planning to organize a disaster preparation and management activity, we can
+						help you!
+					</small> <br />
+
+					<a href="" class="text-primary" routerLink="/training-form"><small>Click this link to find
+							out</small></a>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col pointer">
+					<strong class="mb-2">Are you at risk?</strong> <br />
+
+					<small>
+						Is your barangay located on or near an active earthquake fault?
+					</small> <br />
+
+					<a target="_blank" href="https://faultfinder.phivolcs.dost.gov.ph/" class="text-primary"><small>Click this link to
+							find out</small></a>
+				</div>
+			</div>
+
+			<!-- <div class="row mb-2 mt-3">
+				<div class="col text-center">
+					<strong class="mb-2">DONATION PROGRAM</strong> <br />
+					<p>
+						Now Is Your Chance to <br /><strong>HELP SAVE LIVES!</strong> <br /> Lend a Helping Hand! <br />HELP OTHERS <br /> to GetReady!
+					</p>
+				</div>
+			</div> -->
+
+
+			<div class="row mb-1">
+				<div class="col p-2">
+					<img src="assets/img/donor-banner.png" alt="" class="img-fluid pointer"
+						routerLink="/donation-program">
+				</div>
+			</div>
+
+
+
+			<!-- <div class="row">
+				<div class="col text-justify">
+					<strong class="mb-2">Donation Program</strong> <br />
+
+					<small>
+						"Now You Can Help Other To GetReady !"
+					</small> <br />
+
+
+					<strong class="mb-2">About Our Donation Program</strong> <br />
+
+					<small>
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+					</small> <br />
+
+					<a href="javascript:void(0)" (click)="displayNeedHelp = true" class="text-primary"><strong>Need Help
+							?</strong></a><br />
+					<a href="javascript:void(0)" (click)="displayWillingToHelp = true"
+						class="text-primary"><strong>Willing to Help ?</strong></a>
+				</div>
+			</div> -->
+
 		</div>
 
+
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col mb-2">
+					<strong class="float-left">FEATURED</strong>
+
+					<strong class="float-right pointer" routerLink="/shop">VIEW MORE</strong>
+				</div>
+			</div>
+
+
+			<div class="row mb-2">
+				<div class="col-md-4 " *ngFor="let l of featuredProduct.tblVal" routerLink="/product/{{ l.prod_id }}">
+					<div class="card h-100 m-2 border-0 pointer card-wrapper">
+						<img *ngIf="l.featured_image" src="{{ host }}{{ l.featured_image.prod_img_filename }}"
+							class="img-fluid card-img-top-prod" style="max-height: 250px;">
+
+						<img *ngIf="!l.featured_image" style="max-height: 250px;" src="assets/img/no-prev.jpg"
+							class="img-fluid card-img-top-prod">
+
+						<div class="card-body p-1">
+							<h5 class="card-title text-danger text2">{{ l.prod_title }}</h5>
+							<h6 class="card-subtitle text-danger mb-1">{{ l?.first_variant?.prod_var_price |
+								currency:"PHP":"symbol" }}
+							</h6>
+
+							<h6 class="card-subtitle text-muted text mt-3">{{ l.prod_desc }}</h6>
+						</div>
+
+						<!-- <div class="card-hover">
+							<div class="row h-100">
+								<div class="col d-flex align-items-center justify-content-center">
+
+									<button class="btn rounded-circle m-1 btn-circle" (click)="addToCart(l)">
+										<img src="assets/icons/carthoverwhite.png">
+									</button>
+									<button class="btn rounded-circle m-1 btn-circle"
+										routerLink="/product/{{ l.prod_id }}">
+										<img src="assets/icons/viewcartwhite.png">
+									</button>
+								</div>
+							</div>
+
+						</div> -->
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col text-center mt-4">
+					<h4>"Click on Categories Below for More Products and Services"</h4>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-12 mb-2">
+					<div class="card-deck">
+						<div class="card pointer" routerLink="/shop/Pandemic">
+							<img class="card-img-top" src="assets/img/pandemic-medical.jpg" style="height: 230px;"
+								alt="Card image cap">
+							<div class="card-body p-1 text-center">
+								<h6 class="card-title">PANDEMIC
+									/MEDICAL/EMT</h6>
+							</div>
+						</div>
+
+						<div class="card pointer" routerLink="/shop/Earthquake">
+							<img class="card-img-top" src="assets/img/earthquake.jpg" style="height: 230px;"
+								alt="Card image cap">
+							<div class="card-body p-1 text-center">
+								<h6 class="card-title">EARTHQUAKE</h6>
+							</div>
+						</div>
+
+						<div class="card pointer" routerLink="/shop/Fire">
+							<img class="card-img-top" src="assets/img/fire.jpg" style="height: 230px;"
+								alt="Card image cap">
+							<div class="card-body p-1 text-center">
+								<h6 class="card-title">FIRE</h6>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+				<div class="col-12">
+					<div class="card-deck">
+						<div class="card pointer" routerLink="/shop/Typhoon">
+							<img class="card-img-top" src="assets/img/typhoon.jpg" style="height: 230px;"
+								alt="Card image cap">
+							<div class="card-body p-1 text-center">
+								<h6 class="card-title">TYPHOON</h6>
+							</div>
+						</div>
+
+						<div class="card pointer" routerLink="/shop/Industrial Safety">
+							<img class="card-img-top" src="assets/img/industrialsafety.jpg" style="height: 230px;"
+								alt="Card image cap">
+							<div class="card-body p-1 text-center">
+								<h6 class="card-title">INDUSTRIAL SAFETY</h6>
+							</div>
+						</div>
+
+						<div class="card pointer" routerLink="/shop/Auto Emergency">
+							<img class="card-img-top" src="assets/img/autoemergency.jpg" style="height: 230px;"
+								alt="Card image cap">
+							<div class="card-body p-1 text-center">
+								<h6 class="card-title">AUTO EMERGENCY</h6>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<p class="p-5">
+
+		</p>
 	</div>
 
+	<p-dialog header="" [(visible)]="displayNeedHelp" styleClass="col-11 col-md-6 mt-5" [modal]="true"
+		[baseZIndex]="8000" [draggable]="false">
 
-	<div class="row mb-5">
-		<div class="col-md-6 text-center">
-			<img src="assets/img/xmasmsg.jpg" class="img-fluid" alt="Responsive image" style="height: 600px;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					<form [formGroup]="trainingForm">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="first_name">Firstname</label>
+									<input type="text" class="form-control form-control-sm bg-fb" id="first_name"
+										formControlName="first_name">
+
+									<small class="text-danger" *ngIf="tf.first_name?.errors?.required">
+										Firstname is required <br />
+									</small>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="last_name">Lastname</label>
+									<input type="text" class="form-control form-control-sm bg-fb" id="last_name"
+										formControlName="last_name">
+
+									<small class="text-danger" *ngIf="tf.last_name?.errors?.required">
+										Lastname is required <br />
+									</small>
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="middle_name">Middlename</label>
+									<input type="text" class="form-control form-control-sm bg-fb" id="middle_name"
+										formControlName="middle_name">
+
+									<small class="text-danger" *ngIf="tf.middle_name?.errors?.required">
+										Middlename is required <br />
+									</small>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+
+								<div class="form-group">
+
+									<div class="form-group">
+
+										<label for="company_name">Organization/Company</label>
+										<input type="text" class="form-control form-control-sm bg-fb" id="company_name"
+											formControlName="company_name">
+
+										<small class="text-danger" *ngIf="tf.company_name?.errors?.required">
+											Company Name is required <br />
+										</small>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="col-md-6">
+
+								<div class="form-group">
+
+									<div class="form-group">
+
+										<label for="company_desc">Full Address</label>
+										<input type="text" class="form-control form-control-sm bg-fb" id="company_desc"
+											formControlName="company_desc">
+
+										<small class="text-danger" *ngIf="tf.company_desc?.errors?.required">
+											Company Address is required <br />
+										</small>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+
+									<label for="email">Email</label>
+									<input type="text" class="form-control form-control-sm bg-fb" id="email"
+										formControlName="email">
+
+									<small class="text-danger" *ngIf="tf.email?.errors?.required">
+										Email is required <br />
+									</small>
+
+									<small class="text-danger" *ngIf="tf.email?.errors?.email">
+										Invalid Email<br />
+									</small>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+
+									<div class="form-group">
+
+										<label for="mobile_number">Mobile Number</label>
+										<input type="text" class="form-control form-control-sm bg-fb" id="mobile_number"
+											formControlName="mobile_number">
+
+										<small class="text-danger" *ngIf="tf.mobile_number?.errors?.required">
+											Mobile Number is required <br />
+										</small>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+
+
+
+						<div class="row">
+							<div class="col-md-12">
+
+								<div class="form-group">
+
+									<div class="form-group">
+
+										<label for="location">What we need</label>
+										<input type="text" class="form-control form-control-sm bg-fb" id="location"
+											formControlName="location">
+
+										<small class="text-danger" *ngIf="tf.location?.errors?.required">
+											Please enter what item you need<br />
+										</small>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+
+
+
+
+
+						<div class="row">
+							<div class="col-md-12">
+
+								<div class="form-group">
+
+									<div class="form-group">
+
+										<label for="company_size">Why we need ?</label>
+										<input type="text" class="form-control form-control-sm bg-fb" id="company_size"
+											formControlName="company_size">
+
+										<small class="text-danger" *ngIf="tf.company_size?.errors?.required">
+											Please tell us why you need this request <br />
+										</small>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<button type="button" class="btn btn-secondary mt-3 p-2" (click)="submitTrainingForm()"
+									[disabled]="!trainingForm.valid">SUBMIT</button>
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
 		</div>
+	</p-dialog>
 
-		<div class="col-md-6 text-center">
-			<img src="assets/img/aniv.jpg" class="img-fluid" alt="Responsive image" style="height: 600px;">
+	<p-dialog header="" [(visible)]="displayWillingToHelp" styleClass="col-11 col-md-6 mt-5" [modal]="true"
+		[baseZIndex]="8000" [draggable]="false">
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					<form [formGroup]="trainingForm">
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="first_name">Name</label>
+									<input type="text" class="form-control form-control-sm bg-fb" id="first_name"
+										formControlName="first_name">
+
+									<small class="text-danger" *ngIf="tf.first_name?.errors?.required">
+										Name is required <br />
+									</small>
+								</div>
+							</div>
+
+
+						</div>
+
+
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+
+									<label for="email">Email</label>
+									<input type="text" class="form-control form-control-sm bg-fb" id="email"
+										formControlName="email">
+
+									<small class="text-danger" *ngIf="tf.email?.errors?.required">
+										Email is required <br />
+									</small>
+
+									<small class="text-danger" *ngIf="tf.email?.errors?.email">
+										Invalid Email<br />
+									</small>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+
+									<div class="form-group">
+
+										<label for="mobile_number">Mobile Number</label>
+										<input type="text" class="form-control form-control-sm bg-fb" id="mobile_number"
+											formControlName="mobile_number">
+
+										<small class="text-danger" *ngIf="tf.mobile_number?.errors?.required">
+											Mobile Number is required <br />
+										</small>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+
+
+
+						<div class="row">
+							<div class="col-md-12">
+
+								<div class="form-group">
+
+									<div class="form-group">
+
+										<label for="location">Donate to</label>
+										<input type="text" class="form-control form-control-sm bg-fb" id="location"
+											formControlName="location">
+
+										<small class="text-danger" *ngIf="tf.location?.errors?.required">
+											Tell us where you want to donate this.<br />
+										</small>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<button type="button" class="btn btn-secondary mt-3 p-2" (click)="submitTrainingForm()"
+									[disabled]="!trainingForm.valid">SUBMIT</button>
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
+	</p-dialog>
 
+
+
+	<p-dialog header="" [(visible)]="displayVideo" styleClass="col-11 col-md-6 mt-5" [modal]="true" [baseZIndex]="8000"
+		[draggable]="false">
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					<iframe width="100%" height="500" src="https://www.youtube.com/embed/EiOhjdJX7qQ"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+
+				</div>
+			</div>
+		</div>
+	</p-dialog>
+
+	<p-dialog header="Hotlines" [(visible)]="displayEmergencyHotlineModal" styleClass="col-11 col-md-6 mt-5"
+		[modal]="true" [baseZIndex]="8000" [draggable]="false">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col">
+					<strong>NATIONAL DISASTER AND RISK REDUCTION AND MANAGEMENT COUNCIL</strong>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<strong>(NDRRMC) Hotlines</strong>
+
+					<ul>
+						<li>(02) 911-14-06</li>
+						<li>(02) 912-56-68</li>
+						<li>(02) 911-18-73</li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<strong>(NDRRMC) Hotlines for Luzon</strong>
+
+					<ul>
+						<li>NCR: (02) 421-1918</li>
+						<li>Region I (072) 844-1630</li>
+						<li>Region II (045) 455-1145</li>
+						<li>Region III (049) 531-7266</li>
+						<li>Region IV-A (049) 531-7266</li>
+						<li>Region IV-B (049) 723-4248</li>
+						<li>Region V (052) 481-1656</li>
+						<li>CAR (074) 304-2256</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>OFFICE OF THE CIVIL DEFENSE REGIONAL OFFICE TELEPHONE DIRECTORY</strong>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<ul>
+						<li>NCR: (02) 913-2786</li>
+						<li>Region I (072) 607-6258</li>
+						<li>Region II (078) 844-1630</li>
+						<li>Region III (045) 455-1526</li>
+						<li>Region IV-A (049) 834-4244,531-7279</li>
+						<li>Region IV-B (043) 723-4258</li>
+						<li>Region V (052) 481-1656</li>
+						<li>Region VI (033) 337-6671</li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+
+					<ul>
+						<li>Region VII (032) 416-5025</li>
+						<li>Region VIII (053) 323-8453</li>
+						<li>Region IX (062) 215-3984</li>
+						<li>Region X (088) 857-3988,875-3907</li>
+						<li>Region XI (082) 233-2022</li>
+						<li>Region VII (083) 552-9759</li>
+						<li>CAR (074) 304-2256</li>
+						<li>CARAGA (085) 815-6345</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>Philippine National Police (PNP) Hotline Patrol</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>117 or send TXT PNP to 2920</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>Bereau of Fire Protection (NCR)</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>117,(02)729-5166, (02) 410-6319</li>
+					</ul>
+
+					(Refional Director, Information Desk)
+				</div>
+			</div>
+
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>Department of Transportation and Communication (DOTC) Hotline</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>7890 or (02) 726-6255</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>Metro Manila Development Authority (MMDA)</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>136, 882-0925 (flood control)</li>
+						<li>Trunkline: (02)-882-4150-77 loc. 337</li>
+						<li>(rescue), 255(Metrobase)</li>
+						<li>Metrobase: 882-0860</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>Department of Public Works and Highways (DPWH)</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>(02) 304-3713, (02) 304-3904</li>
+					</ul>
+				</div>
+			</div>
+
+
+
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>Redcross Hotline</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>143, (02) 527-0000, (02) 527-8385 to 95</li>
+					</ul>
+				</div>
+			</div>
+
+
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>North Luzon Expressway (NLEX) Hotlines</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>02, 3-5000 and (02) 580-8910</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>
+						Subic-CLark-Tarlac-Expressway (SCTEX)</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>(0920) 96-SCTEX (72839) (traffic hotline) or (045) 459-0522</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>
+						Skyway System Hotline</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>(02) 776-777 (PLDT), 0917-539-8762</li>
+						<li>Globe, 0999-888-0893, (SMART) 0932-854-6980</li>
+
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>
+						South Luzon Expressway (Slex)</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>0917-6877539 (globe)</li>
+						<li>(049) 508-7509</li>
+						<li>(02) 584-4389</li>
+
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>
+						Philippine Atmospheric, Geophysical and Astronomical Services Administration</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>(02) 433-8256</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>
+						Philippine Coast Guard</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>(02) 527-3877</li>
+						<li>(02) 527-8481</li>
+						<li>0917-724-3682</li>
+						<li>0917-PCG-DOTC</li>
+					</ul>
+				</div>
+			</div>
+
+
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>
+						Manila Water Hotline</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>1627</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="row mb-2">
+				<div class="col">
+					<strong>
+						DSWD</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>(02) 951-7119</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</p-dialog>
+
+	<p-toast [style]="{marginTop: '80px'}"></p-toast>

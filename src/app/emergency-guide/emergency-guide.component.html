@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col text-center">
+            <h4><strong>Emergency Guide</strong></h4>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+        <div class="col-md-3 d-none d-md-block">
+            <ul class="list-group">
+                <li class="list-group-item pointer" *ngFor="let l of listGuide" (click)="selectGuide(l)">
+                    <img src="assets/icons/grph/{{ l.icon }}" *ngIf="l.icon" style="width: 25px;"> {{ l.label }}
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-12 d-sm-block d-md-none mb-2">
+
+            <p-dropdown [options]="listGuide"  (onChange)="selectGuideTest($event)" placeholder="Select a Emergency Guide"></p-dropdown>
+
+        </div>
+
+
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col">
+                    <h4><strong>{{ guideTitle }}</strong></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" *ngFor="let l of displayImages">
+                    <div class="card m-1" >
+                        <img src="assets/img/guides/{{ l.filename }}" alt="" class="img-fluid" style="width:  500px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

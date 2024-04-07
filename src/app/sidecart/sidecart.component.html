@@ -1,0 +1,51 @@
+<p-sidebar [(visible)]="displaySideCart" position="right" [baseZIndex]="10000">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col mt-5">
+                <h3>YOUR CART</h3>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col">
+
+                <ul class="list-unstyled">
+
+                    <li class="media mb-2" *ngFor="let l of cartList">
+
+                        <img *ngIf="l.featured_image" src="{{ host }}{{ l.featured_image }}" class="img-fluid" style="width: 50px;">
+
+						<img *ngIf="!l.featured_image" src="assets/img/no-prev.jpg" class="img-fluid" style="width: 50px;">
+
+                        <div class="media-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <strong>{{ l.prod_title }}</strong> <br/>
+
+                                        <strong class="text-muted">{{ l.prod_qty }}x &#8369; {{ l.prod_var_price }}</strong>
+                                    </div>
+                                    <div class="col-md-6 text-center">
+                                        <i class="pi pi-times pointer" (click)="removeCartItem(l)"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col fixed-bottom text-center p-5">
+
+                <h6 class="text-muted" *ngIf="cartList.length == 0">Empty</h6>
+
+                <h4><strong>Total: &#8369; {{ total }}</strong></h4>
+                <button class="btn btn-dark bt-block p-2 rounded" routerLink="/checkout" (click)="displaySideCart = false">CHECK OUT</button>
+            </div>
+        </div>
+    </div>
+</p-sidebar>

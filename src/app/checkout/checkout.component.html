@@ -1,0 +1,420 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="float-left">
+                                        <h4 class="card-title"><strong>Checkout</strong></h4>
+                                        <h6 class="card-subtitle">Overview of your shopping cart</h6>
+                                    </div>
+
+                                    <div class="float-right">
+                                        <button class="btn btn-secondary btn-sm" (click)="emptyCart()">EMPTY
+                                            CART</button>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+
+
+
+                                    <div class="table-responsive mt-3">
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>PRODUCT</th>
+                                                    <th>PRICE</th>
+                                                    <th>QUANTITY</th>
+                                                    <th>TOTAL</th>
+                                                    <th>ACTION</th>
+                                                </tr>
+                                            </thead>
+
+
+
+                                            <tbody>
+                                                <tr *ngFor="let l of cartList">
+                                                    <td>
+                                                        <img *ngIf="l.featured_image"
+                                                            src="{{ host }}{{ l.featured_image }}" class="img-fluid"
+                                                            style="width: 50px;">
+
+                                                        <img *ngIf="!l.featured_image" src="assets/img/no-prev.jpg"
+                                                            class="img-fluid" style="width: 50px;">
+
+                                                    </td>
+                                                    <td>
+                                                        <strong>{{ l.prod_title }}</strong>
+                                                    </td>
+                                                    <td>
+                                                        &#8369; {{ l.prod_var_price }}
+                                                    </td>
+                                                    <td>
+
+                                                        <p-inputNumber styleClass="gprh-p-inputnumber"
+                                                            [(ngModel)]="l.prod_qty" [showButtons]="true"
+                                                            buttonLayout="horizontal" inputId="horizontal"
+                                                            spinnerMode="horizontal" [step]="1"
+                                                            decrementButtonClass="p-button-danger"
+                                                            incrementButtonClass="p-button-success"
+                                                            incrementButtonIcon="pi pi-plus"
+                                                            decrementButtonIcon="pi pi-minus" [min]="1"
+                                                            [max]="l.prod_var_stock" (onInput)="changeInput(l)">
+                                                        </p-inputNumber>
+
+
+                                                    </td>
+
+                                                    <td>
+                                                        &#8369; {{ l.prod_qty * l.prod_var_price }}
+                                                    </td>
+
+                                                    <td>
+                                                        <small>
+                                                            <strong class="text-muted pointer"
+                                                                (click)="removeCartItem(l)">
+                                                                DELETE
+                                                            </strong>
+                                                        </small>
+
+                                                    </td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+
+                                        <div class="container-fluid" *ngIf="cartList.length == 0">
+                                            <div class="row">
+                                                <div class="col text-center">
+                                                    <h6 class="text-muted">Your cart is empty</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-right">
+                                    <h4><strong>Sub total: &#8369; {{ total }}</strong></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="float-left">
+                                        <h4 class="card-title"><strong>Checkout Donation</strong></h4>
+                                        <h6 class="card-subtitle">Overview of your donation shopping cart</h6>
+                                    </div>
+
+                                    <div class="float-right">
+                                        <button class="btn btn-secondary btn-sm" (click)="emptyCartDonate()">EMPTY
+                                            CART</button>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+
+
+
+                                    <div class="table-responsive mt-3">
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>PRODUCT</th>
+
+                                                    <th>BENEFICIARY</th>
+                                                    <th>PRICE</th>
+                                                    <th>QUANTITY</th>
+                                                    <th>TOTAL</th>
+                                                    <th>ACTION</th>
+                                                </tr>
+                                            </thead>
+
+
+
+                                            <tbody>
+                                                <tr *ngFor="let l of cartListDonate">
+                                                    <td>
+                                                        <img *ngIf="l.featured_image"
+                                                            src="{{ host }}{{ l.featured_image }}" class="img-fluid"
+                                                            style="width: 50px;">
+
+                                                        <img *ngIf="!l.featured_image" src="assets/img/no-prev.jpg"
+                                                            class="img-fluid" style="width: 50px;">
+
+                                                    </td>
+                                                    <td>
+                                                        <strong>{{ l.prod_title }}</strong>
+                                                    </td>
+
+                                                    <td>
+                                                        <strong>{{ l.fullname }}</strong>
+                                                    </td>
+
+                                                    <td>
+                                                        &#8369; {{ l.prod_var_price }}
+                                                    </td>
+                                                    <td>
+
+                                                        <p-inputNumber styleClass="gprh-p-inputnumber"
+                                                            [(ngModel)]="l.prod_qty" [showButtons]="true"
+                                                            buttonLayout="horizontal" inputId="horizontal"
+                                                            spinnerMode="horizontal" [step]="1"
+                                                            decrementButtonClass="p-button-danger"
+                                                            incrementButtonClass="p-button-success"
+                                                            incrementButtonIcon="pi pi-plus"
+                                                            decrementButtonIcon="pi pi-minus" [min]="1"
+                                                            [max]="l.prod_var_stock" (onInput)="changeInputDonate(l)">
+                                                        </p-inputNumber>
+
+
+                                                    </td>
+
+                                                    <td>
+                                                        &#8369; {{ l.prod_qty * l.prod_var_price }}
+                                                    </td>
+
+                                                    <td>
+                                                        <small>
+                                                            <strong class="text-muted pointer"
+                                                                (click)="removeCartItemDonate(l)">
+                                                                DELETE
+                                                            </strong>
+                                                        </small>
+
+                                                    </td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+
+                                        <div class="container-fluid" *ngIf="cartListDonate.length == 0">
+                                            <div class="row">
+                                                <div class="col text-center">
+                                                    <h6 class="text-muted">Your cart is empty</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-right">
+                                    <h4><strong>Sub total: &#8369; {{ totalDonate }}</strong></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <form [formGroup]="contactForm">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="fullname">Fullname</label>
+                                            <input type="text" class="form-control form-control-sm bg-fb"  id="fullname"  formControlName="fullname">
+
+                                            <small class="text-danger" *ngIf="cf.fullname?.errors?.required">
+                                                Fullname is required <br/>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+
+                                            <label for="email">Email</label>
+                                            <input type="text" class="form-control form-control-sm bg-fb"  id="email"  formControlName="email">
+
+                                            <small class="text-danger" *ngIf="cf.email?.errors?.required">
+                                                Email is required <br/>
+                                            </small>
+
+                                            <small class="text-danger" *ngIf="cf.email?.errors?.email">
+                                                Invalid Email<br/>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+
+                                            <label for="mobile">Mobile Number</label>
+                                            <input type="text" class="form-control form-control-sm bg-fb"  id="mobile"  formControlName="mobile">
+
+                                            <small class="text-danger" *ngIf="cf.mobile?.errors?.required">
+                                                Mobile Number is required <br/>
+                                            </small>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+
+                                            <label for="address">Address</label>
+                                            <input type="text" class="form-control form-control-sm bg-fb"  id="address"  formControlName="address">
+
+                                            <small class="text-danger" *ngIf="cf.address?.errors?.required">
+                                                Address is required <br/>
+                                            </small>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+
+                                            <label for="city">City</label>
+                                            <input type="text" class="form-control form-control-sm bg-fb"  id="city"  formControlName="city">
+
+                                            <small class="text-danger" *ngIf="cf.city?.errors?.required">
+                                                City is required <br/>
+                                            </small>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="state">State</label>
+                                                    <p-dropdown [options]="stateListOpt" id="state"  formControlName="state" [style]="{'width':'100%'}"></p-dropdown>
+
+                                                    <small class="text-danger" *ngIf="cf.state?.errors?.required">
+                                                        Please select your state.
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="country">Country</label>
+                                                    <p-dropdown [options]="countryListOpt" id="country"  formControlName="country" [style]="{'width':'100%'}"></p-dropdown>
+
+                                                    <small class="text-danger" *ngIf="cf.country?.errors?.required">
+                                                        Please select your country.
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="payment">Payment Method</label>
+                                                    <p-dropdown [options]="paymentListOpt" id="payment"  formControlName="payment" [style]="{'width':'100%'}"></p-dropdown>
+
+                                                    <small class="text-danger" *ngIf="cf.payment?.errors?.required">
+                                                        Please select your payment.
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <h5 class="text-muted">Sub total: &#8369; {{ total }}</h5>
+                                        <h4><strong>Total: &#8369; {{ total }}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button  type="button" class="btn btn-block btn-secondary mt-3"
+                                        (click)="displayCartList = true"
+                                        [disabled]="!contactForm.valid">SUBMIT</button>
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-toast [style]="{marginTop: '80px'}" [baseZIndex]="99999"></p-toast>
+
+<p-dialog header="Please choose your cart to pay" [(visible)]="displayCartList" styleClass="col-11 col-md-4 mt-3" [modal]="true" [baseZIndex]="8000" [draggable]="false">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <button class="card-body pointer bg-primary text-white" (click)="submitCart('mycart')" [disabled]="total == '0.00'">
+                        <h4 class="card-title">MY CART</h4>
+                        <h5 class="card-sub-title">&#8369; {{ total }}</h5>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <button class="card pointer bg-success text-white" (click)="submitCart('donation')" [disabled]="totalDonate == '0.00'">
+                    <div class="card-body">
+                        <h4 class="card-title">DONATION CART</h4>
+                        <h5 class="card-sub-title">&#8369; {{ totalDonate }}</h5>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <p-progressBar mode="indeterminate" [style]="{'height': '15px'}" *ngIf="subOrderRes.load"></p-progressBar>
+            </div>
+        </div>
+    </div>
+</p-dialog>
+
+
+
