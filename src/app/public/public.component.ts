@@ -44,6 +44,8 @@ export class PublicComponent implements OnInit {
 		{ field: "featured_image", header: 'featured_image' }
 	]);
 
+	newImage = new TblConfig([]);
+
 	constructor(private _dataServe: DataService, private changeDetectorRefs: ChangeDetectorRef, private _formBuilder: FormBuilder, private _msgServe: MessageService) {
 		this.host = env.dirProject;
 
@@ -54,6 +56,25 @@ export class PublicComponent implements OnInit {
 	get tf() { return this.trainingForm.controls; }
 
 	ngOnInit(): void {
+
+		this.newImage.tblVal = [{
+			filename: "n1.png"
+		},{
+			filename: "n2.png"
+		},{
+			filename: "n3.png"
+		},{
+			filename: "n4.png"
+		},{
+			filename: "n5.png"
+		},{
+			filename: "n6.png"
+		},{
+			filename: "n7.png"
+		},{
+			filename: "n8.png"
+		}]
+
 		this.getAllFeaturedProduct();
 
 
